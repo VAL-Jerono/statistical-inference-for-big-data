@@ -927,10 +927,10 @@ div.sw, div.en { display: block; }
       <p class="sw">Chagua kaunti yoyote kuona profaili yake ya vipimo vitano vya udhaifu, kulinganisha na wastani wa taifa, na kupata mapendekezo ya sera yanayoendeshwa na AI. HFVS kubwa = udhaifu mkubwa zaidi.</p>
       <div class="hero-kpis">
         <div class="kpi"><div class="kpi-val" id="kpi-counties">47</div><div class="kpi-lbl"><span class="en">Counties mapped</span><span class="sw">Kaunti zimepigwa ramani</span></div></div>
-        <div class="kpi"><div class="kpi-val amber" id="kpi-vuln">40%</div><div class="kpi-lbl"><span class="en">Highly vulnerable</span><span class="sw">Udhaifu mkubwa</span></div></div>
-        <div class="kpi"><div class="kpi-val green" id="kpi-hfvs">0.324</div><div class="kpi-lbl"><span class="en">National mean HFVS</span><span class="sw">Wastani wa HFVS</span></div></div>
+        <div class="kpi"><div class="kpi-val amber" id="kpi-vuln">20.1%</div><div class="kpi-lbl"><span class="en">Highly vulnerable (1 in 5, 80th pct)</span><span class="sw">Udhaifu mkubwa (1 kati ya 5)</span></div></div>
+        <div class="kpi"><div class="kpi-val green" id="kpi-hfvs">0.4797</div><div class="kpi-lbl"><span class="en">National mean HFVS (corrected)</span><span class="sw">Wastani wa HFVS (iliorekebishwa)</span></div></div>
         <div class="kpi"><div class="kpi-val" id="kpi-hh">21,347</div><div class="kpi-lbl"><span class="en">Households surveyed</span><span class="sw">Kaya zilizochunguzwa</span></div></div>
-        <div class="kpi"><div class="kpi-val amber" id="kpi-auc">0.989</div><div class="kpi-lbl"><span class="en">XGBoost AUC</span><span class="sw">AUC ya XGBoost</span></div></div>
+        <div class="kpi"><div class="kpi-val amber" id="kpi-auc">0.65–0.78</div><div class="kpi-lbl"><span class="en">Field proxy AUC (spatial CV)</span><span class="sw">AUC ya mfano wa shamba</span></div></div>
       </div>
     </div>
   </div>
@@ -1008,7 +1008,7 @@ div.sw, div.en { display: block; }
 
   <div class="stat-grid">
     <div class="stat-card"><div class="stat-val">21,347</div><div class="stat-lbl en">Households surveyed across 47 counties</div><div class="stat-lbl sw">Kaya katika kaunti 47</div></div>
-    <div class="stat-card"><div class="stat-val" style="color:var(--risk-high)">40%</div><div class="stat-lbl en">Above 60th percentile — highly vulnerable</div><div class="stat-lbl sw">Juu ya asilimia 60 — udhaifu mkubwa</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--risk-high)">10.09%</div><div class="stat-lbl en">Above 90th percentile threshold — highly vulnerable (2,154 households)</div><div class="stat-lbl sw">Juu ya kiwango cha asilimia 90 — udhaifu mkubwa (kaya 2,154)</div><div class="stat-sub en">80th pct sensitivity band: 20.12% — about 1 in 5</div><div class="stat-sub sw">Ukanda wa unyeti wa asilimia 80: 20.12%</div></div>
     <div class="stat-card"><div class="stat-val">1.81%</div><div class="stat-lbl en">Triple-exposed (flood + no tenure + rent stress)</div><div class="stat-lbl sw">Mfiduo wa tatu</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--risk-high)">3.90%</div><div class="stat-lbl en">Urban triple-exposure — 25.8× higher than rural</div><div class="stat-lbl sw">Mfiduo wa tatu mjini — mara 25.8 zaidi ya vijijini</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--risk-high)">96.8%</div><div class="stat-lbl en">No formal loan access nationally</div><div class="stat-lbl sw">Hawana mkopo rasmi kitaifa</div></div>
@@ -1026,10 +1026,10 @@ div.sw, div.en { display: block; }
     </div>
     <div id="weightBars"></div>
     <div class="insight warn" style="margin-top:16px">
-      <div class="insight-label en">Weight Audit Finding</div>
-      <div class="insight-label sw">Matokeo ya Ukaguzi wa Uzito</div>
-      <div class="insight-text en">96.6% of Kenyan households cook with solid fuel and 43.7% have no grid electricity. This near-universal deprivation inflates D5's effective weight to <strong>34.3%</strong> — far above its stated 20%. D3 Physical Hazard is suppressed to 6.2% because six proximity sub-columns were absent from the 2023/24 survey extract.</div>
-      <div class="insight-text sw">Asilimia 96.6 ya kaya za Kenya zinapika kwa kuni/mkaa na asilimia 43.7 hazina umeme wa gridi. Ukosefu huu unafanya D5 ionekane kwa asilimia <strong>34.3</strong> — zaidi ya asilimia 20 iliyopangwa. D3 imeshuka hadi asilimia 6.2.</div>
+      <div class="insight-label en">Weight Correction Note — Two Pipelines, Two Intentional Choices</div>
+      <div class="insight-label sw">Kumbuka ya Urekebishaji wa Uzito — Njia Mbili, Maamuzi Mawili ya Makusudi</div>
+      <div class="insight-text en">These national headline weights come from Notebook 1's variance-balanced z-score rebuild, which corrects the D3 suppression bug present in the dissertation's min-max scaling. Under the corrected scheme, D3 Physical Hazard rises to <strong>21.5%</strong> and D5 Utility Deprivation settles at <strong>24.3%</strong>. The county-level table elsewhere on this site uses the dissertation's original weighting (~6% D3), where hazard-proximity coding is sparse — documented as a data limitation, not an error. The two sets of numbers are not directly comparable cell-by-cell; see How It Works for the full explanation.</div>
+      <div class="insight-text sw">Uzito huu wa kitaifa unatoka kwa ujenzi upya wa z-score wa Notebook 1 unaorekebishwa. D3 inapanda hadi asilimia 21.5 na D5 inashuka hadi asilimia 24.3. Jedwali la kaunti linatumia uzito wa awali wa tasnifu (~asilimia 6 D3) — hii ni kumbukumbu ya upungufu wa data.</div>
     </div>
   </div>
 
@@ -1296,7 +1296,8 @@ const NAT = {d1:.421,d2:.370,d3:.213,d4:.519,d5:.720};
 const DC = {d1:'#4FC3F7',d2:'#9B59B6',d3:'#E74C3C',d4:'#F39C12',d5:'#00C47A'};
 const DN_EN = {d1:'Financial Stress',d2:'Tenure Insecurity',d3:'Physical Hazard',d4:'Dwelling Quality',d5:'Utility Deprivation'};
 const DN_SW = {d1:'Msongo wa Fedha',d2:'Kukosa Haki ya Ardhi',d3:'Hatari ya Mazingira',d4:'Ubora wa Makazi',d5:'Ukosefu wa Huduma'};
-const DW = {d1:.237,d2:.138,d3:.062,d4:.220,d5:.343};
+// Corrected national weights (Notebook 1, variance-balanced)
+const DW = {d1:.146,d2:.186,d3:.215,d4:.211,d5:.243};
 
 let lang='en', riskFilter='all', dimSort='hfvs', selectedCounty=null, searchVal='';
 let compareList=[], aiHistory={}, stkHistory={};
@@ -1468,7 +1469,7 @@ function selectCounty(name, skipCompare=false){
     <div class="detail-score-block">
       <div class="detail-score" style="color:${level==='high'?'#FF5A5A':level==='mod'?'#FFB347':'#00C47A'}">${c.hfvs.toFixed(3)}</div>
       <div class="detail-score-lbl">HFVS COMPOSITE SCORE</div>
-      <div class="detail-rank-badge">National mean: 0.362</div>
+      <div class="detail-rank-badge">County table mean: 0.351 · National headline: 0.480</div>
     </div>
   </div>
   <div class="detail-body">
@@ -1748,28 +1749,37 @@ function setDimSort(d,btn){
 /* ── AI ─────────────────────────────────────────────────────────── */
 function buildSysPrompt(c){
   const w=worstDim(c);
-  return `You are an expert housing policy advisor for Kenya, specialising in the Housing Financial Vulnerability Score (HFVS) from the Kenya Housing Survey 2023/24 (KNBS, n=21,347 households).
+  return `You are a housing policy advisor for Kenya, working from the Housing Financial Vulnerability Score (HFVS), built from the Kenya Housing Survey 2023/24 (KNBS, n=21,347 households).
 
-COUNTY: ${c.name} County (Rank ${c.rank}/47, Region: ${c.region})
+There are two HFVS models in this work and you must never blur them:
+
+1. Construction model (full survey): HFVS is built from five dimensions (financial stress, tenure insecurity, physical hazard, dwelling quality, utility deprivation) using the complete household questionnaire. National composite mean: 0.48. Dimension weights (variance-balanced): D1 15%, D2 19%, D3 22%, D4 21%, D5 24%.
+
+2. Field-deployable proxy model: estimates HFVS from a short field survey using only variables independent of the HFVS formula. Spatial cross-validation AUC: 0.65–0.78, depending on model family. This is the honest, real-world accuracy for field deployment — cite this number, never the construction model's internal-consistency AUC (0.95–0.98), when asked about prediction accuracy.
+
+COUNTY CONTEXT:
+County: ${c.name} (Rank ${c.rank}/47, Region: ${c.region})
 HFVS: ${c.hfvs.toFixed(3)} | D1: ${Math.round(c.d1*100)}% | D2: ${Math.round(c.d2*100)}% | D3: ${Math.round(c.d3*100)}% | D4: ${Math.round(c.d4*100)}% | D5: ${Math.round(c.d5*100)}%
-National avgs — D1: 42% | D2: 37% | D3: 21% | D4: 52% | D5: 72%
-Worst dimension: ${DN_EN[w]} | Triple-exposed: ${c.triple.toFixed(2)}% | Mortgage penetration: ${c.mortgage.toFixed(2)}%
+Triple-exposed households: ${c.triple.toFixed(2)}% | Mortgage penetration: ${c.mortgage.toFixed(2)}%
+Worst dimension: ${DN_EN[w]}
 
-NATIONAL: 96.8% no formal loan | 54.5% no land ownership | 96.6% solid-fuel cooking | 43.7% no grid electricity
-ML model: AUC=0.782, Brier=0.186 (below 0.22 actuarial threshold) | KMRC Spearman ρ=−0.294 (p=0.045)
-AHP: 12/15 most vulnerable counties have no active project | IRA: 7 counties generate all national property insurance
+Note on D3: the county-level table intentionally underweights physical hazard (~6%) because hazard-proximity coding is sparse in the source survey — this is documented as a data limitation, not an error. The national headline weights above use a corrected, variance-balanced scheme where D3 sits near 22%. Both are legitimate, intentional choices for different purposes.
 
-Respond in plain, accessible language. If user writes Swahili, respond in Swahili. Keep responses practical (under 250 words) and tie recommendations to the specific dimension scores above.`;
+NATIONAL: 96.8% no formal loan | 54.5% no land ownership | 96.6% solid-fuel cooking | 43.7% no grid electricity | Brier=0.186 (below 0.22 actuarial threshold) | KMRC Spearman rho=−0.294 (p=0.045) | AHP: 12/15 most vulnerable counties have no active project | IRA: 7 counties generate all national property insurance
+
+Respond in plain, accessible language, free of jargon. If the user writes in Swahili, respond in Swahili. Keep responses under 250 words and tie any recommendation to the specific dimension scores given above. Never state or imply that HFVS predicts individual outcomes — it is a population-level risk stratification tool.`;
 }
 
 async function callClaude(system,messages){
-  const r=await fetch('https://api.anthropic.com/v1/messages',{
+  const r=await fetch('/api/chat',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system,messages})
+    body:JSON.stringify({system,messages})
   });
+  if(!r.ok) throw new Error('AI service unavailable ('+r.status+')');
   const d=await r.json();
-  return d.content?.map(i=>i.text||'').filter(Boolean).join('\n').trim()||'No response.';
+  // Groq OpenAI-compatible response: choices[0].message.content
+  return d.choices?.[0]?.message?.content?.trim()||'No response.';
 }
 
 async function aiQuick(name,prompt){
@@ -1907,22 +1917,26 @@ async function stkFollowup(stkName,key){
 
 /* ── NATIONAL ───────────────────────────────────────────────────── */
 function renderWeightBars(){
+  // Corrected variance-balanced weights from Notebook 1 (z-score rebuild)
   const ws=[
-    {k:'D5',label:'Utility Deprivation',w:.343,color:'var(--d5)'},
-    {k:'D1',label:'Financial Stress',   w:.237,color:'var(--d1)'},
-    {k:'D4',label:'Dwelling Quality',   w:.220,color:'var(--d4)'},
-    {k:'D2',label:'Tenure Insecurity',  w:.138,color:'var(--d2)'},
-    {k:'D3',label:'Physical Hazard',    w:.062,color:'var(--d3)'},
-  ];
-  document.getElementById('weightBars').innerHTML=ws.map(w=>`
+    {k:'D3',label:'Physical Hazard',    w:.215,color:'var(--d3)'},
+    {k:'D4',label:'Dwelling Quality',   w:.211,color:'var(--d4)'},
+    {k:'D5',label:'Utility Deprivation',w:.243,color:'var(--d5)'},
+    {k:'D2',label:'Tenure Insecurity',  w:.186,color:'var(--d2)'},
+    {k:'D1',label:'Financial Stress',   w:.146,color:'var(--d1)'},
+  ].sort((a,b)=>b.w-a.w);
+  const maxW=Math.max(...ws.map(w=>w.w));
+  document.getElementById('weightBars').innerHTML=`
+<div style="font-size:11px;color:var(--text3);margin-bottom:10px;font-family:var(--ff-mono)">
+  NATIONAL HEADLINE WEIGHTS — Notebook 1, variance-balanced z-score rebuild
+  <span class="tag tag-green" style="margin-left:8px">Corrected</span>
+</div>`+ws.map(w=>`
 <div class="dim-row">
   <div class="dim-label" style="color:${w.color}">${w.k}: ${w.label}</div>
   <div class="dim-bar-track">
-    <div class="dim-bar-fill" style="width:${Math.round(w.w/.343*100)}%;background:${w.color}"></div>
+    <div class="dim-bar-fill" style="width:${Math.round(w.w/maxW*100)}%;background:${w.color}"></div>
   </div>
   <div class="dim-val" style="color:${w.color}">${(w.w*100).toFixed(1)}%</div>
-  ${w.k==='D5'?'<span class="tag tag-red">Dominant</span>':''}
-  ${w.k==='D3'?'<span class="tag tag-amber">Suppressed</span>':''}
 </div>`).join('');
 }
 
@@ -1997,8 +2011,7 @@ window.addEventListener('load',()=>{
   // Animated counters
   setTimeout(()=>{
     animateCounter(document.getElementById('kpi-hh'),21347,0,1800);
-    animateCounter(document.getElementById('kpi-auc'),.989,3,1200);
-    animateCounter(document.getElementById('kpi-hfvs'),.324,3,1400);
+    animateCounter(document.getElementById('kpi-hfvs'),.4797,4,1400);
   },300);
 
   // Keyboard hint
