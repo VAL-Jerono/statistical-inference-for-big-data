@@ -875,31 +875,26 @@ div.sw, div.en { display: block; }
       <button class="toggle-btn active" onclick="setLang('en')">EN</button>
       <button class="toggle-btn" onclick="setLang('sw')">SW</button>
     </div>
-    <button class="icon-btn" onclick="toggleTheme()" id="theme-btn" title="Toggle theme" aria-label="Toggle dark/light mode">🌙</button>
-    <button class="icon-btn" onclick="showExportModal()" title="Export data" aria-label="Export">📤</button>
+    <button class="icon-btn" onclick="toggleTheme()" id="theme-btn" title="Toggle theme" aria-label="Toggle dark/light mode">◑</button>
+    <button class="icon-btn" onclick="showExportModal()" title="Export full dataset" aria-label="Export CSV">↓ CSV</button>
   </div>
 </nav>
 
 <!-- NAV TABS -->
 <nav class="navtabs" role="tablist">
   <button class="navtab active" onclick="switchTab('explore')" role="tab" aria-selected="true">
-    <span class="tab-icon">🗺️</span>
     <span class="en">Explore Counties</span><span class="sw">Tafuta Kaunti</span>
   </button>
   <button class="navtab" onclick="switchTab('national')" role="tab">
-    <span class="tab-icon">📊</span>
     <span class="en">National Picture</span><span class="sw">Picha ya Taifa</span>
   </button>
   <button class="navtab" onclick="switchTab('stakeholders')" role="tab">
-    <span class="tab-icon">🤝</span>
     <span class="en">Who Should Act</span><span class="sw">Wadau</span>
   </button>
   <button class="navtab" onclick="switchTab('mwananchi')" role="tab">
-    <span class="tab-icon">🏠</span>
     <span class="en">For Everyone</span><span class="sw">Kwa Kila Mtu</span>
   </button>
   <button class="navtab" onclick="switchTab('method')" role="tab">
-    <span class="tab-icon">🔬</span>
     <span class="en">How It Works</span><span class="sw">Jinsi Inavyofanya Kazi</span>
   </button>
 </nav>
@@ -923,8 +918,8 @@ div.sw, div.en { display: block; }
         <span class="en">Kenya Housing <em>Vulnerability</em> Atlas</span>
         <span class="sw">Ramani ya <em>Udhaifu</em> wa Makazi Kenya</span>
       </h1>
-      <p class="en">Select any county to explore its five-dimension vulnerability profile, compare against the national average, and get AI-powered policy recommendations. Higher HFVS = more vulnerable.</p>
-      <p class="sw">Chagua kaunti yoyote kuona profaili yake ya vipimo vitano vya udhaifu, kulinganisha na wastani wa taifa, na kupata mapendekezo ya sera yanayoendeshwa na AI. HFVS kubwa = udhaifu mkubwa zaidi.</p>
+      <p class="en">Select a county to see its five-dimension vulnerability profile and get AI policy recommendations. Higher score = more vulnerable.</p>
+      <p class="sw">Chagua kaunti kuona profaili yake ya vipimo vitano na mapendekezo ya sera. Alama kubwa = udhaifu zaidi.</p>
       <div class="hero-kpis">
         <div class="kpi"><div class="kpi-val" id="kpi-counties">47</div><div class="kpi-lbl"><span class="en">Counties mapped</span><span class="sw">Kaunti zimepigwa ramani</span></div></div>
         <div class="kpi"><div class="kpi-val amber" id="kpi-vuln">20.1%</div><div class="kpi-lbl"><span class="en">Highly vulnerable (1 in 5, 80th pct)</span><span class="sw">Udhaifu mkubwa (1 kati ya 5)</span></div></div>
@@ -944,7 +939,7 @@ div.sw, div.en { display: block; }
       <span class="en">View Side-by-Side →</span>
       <span class="sw">Ona Sambamba →</span>
     </button>
-    <button class="icon-btn" onclick="clearCompare()" title="Clear compare" style="width:28px;height:28px;font-size:13px">✕</button>
+    <button class="icon-btn" onclick="clearCompare()" title="Clear compare" style="width:28px;height:28px;font-size:13px"></button>
   </div>
 
   <div class="search-row">
@@ -1028,7 +1023,7 @@ div.sw, div.en { display: block; }
     <div class="insight warn" style="margin-top:16px">
       <div class="insight-label en">Weight Correction Note — Two Pipelines, Two Intentional Choices</div>
       <div class="insight-label sw">Kumbuka ya Urekebishaji wa Uzito — Njia Mbili, Maamuzi Mawili ya Makusudi</div>
-      <div class="insight-text en">These national headline weights come from Notebook 1's variance-balanced z-score rebuild, which corrects the D3 suppression bug present in the dissertation's min-max scaling. Under the corrected scheme, D3 Physical Hazard rises to <strong>21.5%</strong> and D5 Utility Deprivation settles at <strong>24.3%</strong>. The county-level table elsewhere on this site uses the dissertation's original weighting (~6% D3), where hazard-proximity coding is sparse — documented as a data limitation, not an error. The two sets of numbers are not directly comparable cell-by-cell; see How It Works for the full explanation.</div>
+      <div class="insight-text en">Two pipeline choices produce two HFVS weight sets. The national headline (Notebook 1, variance-balanced z-score) raises D3 Physical Hazard to <strong>21.5%</strong> and sets D5 Utility Deprivation at <strong>24.3%</strong>. The county table uses the dissertation's original weighting (~6% D3) where hazard-proximity coding is sparse — a documented data limitation. The two sets are not directly comparable; see How It Works.</div>
       <div class="insight-text sw">Uzito huu wa kitaifa unatoka kwa ujenzi upya wa z-score wa Notebook 1 unaorekebishwa. D3 inapanda hadi asilimia 21.5 na D5 inashuka hadi asilimia 24.3. Jedwali la kaunti linatumia uzito wa awali wa tasnifu (~asilimia 6 D3) — hii ni kumbukumbu ya upungufu wa data.</div>
     </div>
   </div>
@@ -1080,15 +1075,15 @@ div.sw, div.en { display: block; }
   </div>
 
   <div class="method-card">
-    <div class="method-title">🏠 <span class="en">What is the HFVS score?</span><span class="sw">Ni nini Alama ya HFVS?</span></div>
+    <div class="method-title"><span class="en">What is the HFVS score?</span><span class="sw">Ni nini Alama ya HFVS?</span></div>
     <div class="method-body">
-      <p class="en">The Housing Financial Vulnerability Score (HFVS) measures how hard it is for families in your county to afford safe, secure housing. It combines five problems into one number between 0 and 1. <strong>A score closer to 1 means more hardship.</strong></p>
-      <p class="sw">Alama ya Udhaifu wa Fedha za Makazi (HFVS) inapima jinsi ilivyo vigumu kwa familia kupata makazi salama. Inaunganisha matatizo matano katika nambari moja kati ya 0 na 1. <strong>Alama karibu na 1 inamaanisha ugumu zaidi.</strong></p>
+      <p class="en">The HFVS combines five housing problems into one score from 0 to 1. <strong>Closer to 1 = more vulnerable.</strong></p>
+      <p class="sw">HFVS inaunganisha matatizo matano katika nambari moja kati ya 0 na 1. <strong>Karibu na 1 = udhaifu zaidi.</strong></p>
     </div>
   </div>
 
   <div class="method-card">
-    <div class="method-title">📊 <span class="en">The Five Problems Measured</span><span class="sw">Matatizo Matano Yanayopimwa</span></div>
+    <div class="method-title"><span class="en">The Five Dimensions Measured</span><span class="sw">Matatizo Matano Yanayopimwa</span></div>
     <div class="method-body">
       <div style="display:grid;gap:14px;margin-top:8px">
         <div style="display:flex;gap:12px;align-items:flex-start">
@@ -1116,7 +1111,7 @@ div.sw, div.en { display: block; }
   </div>
 
   <div class="method-card">
-    <div class="method-title">🔍 <span class="en">How to Read Your County Score in 3 Steps</span><span class="sw">Jinsi ya Kusoma Alama ya Kaunti Yako kwa Hatua 3</span></div>
+    <div class="method-title"><span class="en">How to Read Your County Score</span><span class="sw">Jinsi ya Kusoma Alama ya Kaunti Yako</span></div>
     <div style="margin-top:12px">
       <div class="guide-step">
         <div class="guide-num">1</div>
@@ -1135,24 +1130,24 @@ div.sw, div.en { display: block; }
       <div class="guide-step">
         <div class="guide-num">3</div>
         <div class="guide-content">
-          <h3><span class="en">Ask Claude what can be done</span><span class="sw">Uliza Claude inachoweza kufanywa</span></h3>
-          <p><span class="en">The AI Policy Advisor at the bottom of every county profile generates specific recommendations. Ask follow-up questions in plain language — English or Swahili.</span><span class="sw">Mshauri wa Sera wa AI chini ya kila profaili ya kaunti anatoa mapendekezo maalum. Unaweza kuuliza kwa Kiswahili au Kiingereza.</span></p>
+          <h3><span class="en">Ask the AI Policy Advisor</span><span class="sw">Uliza Mshauri wa Sera wa AI</span></h3>
+          <p><span class="en">The AI Advisor at the bottom of every county profile gives specific recommendations in plain English or Swahili.</span><span class="sw">Mshauri wa AI chini ya kila profaili ya kaunti anatoa mapendekezo maalum kwa Kiswahili au Kiingereza.</span></p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="method-card">
-    <div class="method-title">📣 <span class="en">What You Can Do With This Information</span><span class="sw">Unachoweza Kufanya na Taarifa Hii</span></div>
+    <div class="method-title"><span class="en">What You Can Do With This Data</span><span class="sw">Unachoweza Kufanya na Taarifa Hii</span></div>
     <div class="method-body">
-      <p class="en">If you are a <b>voter or community member</b>: ask your MCA or MP what they are doing about the dimension your county scores worst on. This data is from the Kenya National Bureau of Statistics — official and verifiable.</p>
+      <p class="en">If you are a <b>voter or community member</b>: ask your MCA or MP what they are doing about the dimension your county scores worst on. Data source: KNBS — official and verifiable.</p>
       <p class="sw">Kama wewe ni <b>mpiga kura au mwanajamii</b>: uliza MCA wako au Mbunge wako wanachofanya kuhusu kipimo ambacho kaunti yako ina alama mbaya zaidi.</p>
       <br/>
-      <p class="en">If you are a <b>county official or MCA</b>: the dimension breakdown tells you exactly which budget line to prioritise. D5 → electrification and clean cookstoves. D2 → land registration and legal aid. D3 → drainage and flood mapping.</p>
-      <p class="sw">Kama wewe ni <b>afisa wa kaunti au MCA</b>: D5 inamaanisha umeme na jiko safi. D2 inamaanisha usajili wa ardhi na msaada wa kisheria. D3 inamaanisha mifereji ya maji.</p>
+      <p class="en">If you are a <b>county official or MCA</b>: the dimension breakdown maps to budget lines. D5 = electrification and clean cookstoves. D2 = land registration. D3 = drainage and flood works.</p>
+      <p class="sw">Kama wewe ni <b>afisa wa kaunti au MCA</b>: D5 = umeme na jiko safi. D2 = usajili wa ardhi. D3 = mifereji ya maji.</p>
       <br/>
-      <p class="en">If you are a <b>journalist or researcher</b>: the HFVS is derived from KNBS Kenya Housing Survey 2023/24 (n = 21,347). It is freely citable. See the "How It Works" tab for the full methodology.</p>
-      <p class="sw">Kama wewe ni <b>mwandishi wa habari au mtafiti</b>: HFVS inatokana na KNBS Kenya Housing Survey 2023/24 (n = kaya 21,347). Inaweza kutumiwa bure.</p>
+      <p class="en">If you are a <b>journalist or researcher</b>: cite KNBS Kenya Housing Survey 2023/24 (n = 21,347). See How It Works for the full methodology.</p>
+      <p class="sw">Kama wewe ni <b>mwandishi wa habari au mtafiti</b>: HFVS inatokana na KNBS Kenya Housing Survey 2023/24 (n = 21,347).</p>
     </div>
   </div>
 </section>
@@ -1163,7 +1158,7 @@ div.sw, div.en { display: block; }
 <section id="panel-method" class="panel" role="tabpanel">
 
   <div class="method-card">
-    <div class="method-title">📐 <span class="en">The HFVS Formula</span><span class="sw">Fomula ya HFVS</span></div>
+    <div class="method-title"><span class="en">The HFVS Formula</span><span class="sw">Fomula ya HFVS</span></div>
     <div class="eq">HFVS_i = (D1_i + D2_i + D3_i + D4_i + D5_i) / 5 &nbsp;&nbsp; [equal weights, n = 21,347]</div>
     <div class="method-body">
       <span class="en">Each dimension is normalised to [0,1] via z-score standardisation followed by min-max rescaling, then averaged equally. County estimates are survey-weighted using the KNBS sampling design (ratio 327.6×).</span>
@@ -1172,7 +1167,7 @@ div.sw, div.en { display: block; }
   </div>
 
   <div class="method-card">
-    <div class="method-title">📏 <span class="en">Five Dimensions — Full Specification</span><span class="sw">Vipimo Vitano — Maelezo Kamili</span></div>
+    <div class="method-title"><span class="en">Five Dimensions — Full Specification</span><span class="sw">Vipimo Vitano — Maelezo Kamili</span></div>
     <div class="method-body">
       <div style="display:grid;gap:16px">
         <div style="border-left:3px solid var(--d1);padding-left:12px">
@@ -1205,18 +1200,18 @@ div.sw, div.en { display: block; }
   </div>
 
   <div class="method-card">
-    <div class="method-title">📊 <span class="en">Statistical Validation</span><span class="sw">Uthibitisho wa Takwimu</span></div>
+    <div class="method-title"><span class="en">Statistical Validation</span><span class="sw">Uthibitisho wa Takwimu</span></div>
     <div class="method-body">
-      <span class="en">All five dimension scores are significantly non-normal (Shapiro-Wilk p&lt;0.001; KS p&lt;0.001 for all). Parametric and nonparametric methods were run in parallel; all substantive decisions agree.<br/><br/>
-      Urban households score higher than rural (Welch t=9.78, d=0.12; Mann-Whitney r=0.067). Female-headed households face elevated vulnerability (t=5.21, d=0.07). Education gradient exists (ANOVA η²=0.015). All effect sizes are small — the HFVS is not reducible to demographic proxies.<br/><br/>
-      The proxy ML model (isotonic-calibrated LightGBM-XGBoost blend) achieves <strong>AUC=0.782</strong> and <strong>Brier=0.186</strong> on held-out data, with county-level Spearman ρ=0.960. The Brier score falls below the 0.22 actuarial threshold, enabling direct premium loading applications.</span>
+      <span class="en">All five dimension scores are non-normal (Shapiro-Wilk p&lt;0.001; KS p&lt;0.001). Parametric and nonparametric tests run in parallel — all decisions agree.<br/><br/>
+      Urban households score higher than rural (Welch t=9.78, d=0.12). Female-headed households face elevated vulnerability (t=5.21, d=0.07). Education gradient confirmed (ANOVA η²=0.015). All effect sizes are small — the HFVS is not reducible to demographic proxies.<br/><br/>
+      Proxy ML model (LightGBM-XGBoost blend, isotonic calibration): <strong>AUC=0.782</strong>, <strong>Brier=0.186</strong>. County-level Spearman ρ=0.960. Brier falls below the 0.22 actuarial threshold enabling direct premium-loading.</span>
       <span class="sw">Alama zote za vipimo vitano haziko katika usambazaji wa kawaida (Shapiro-Wilk p&lt;0.001). Njia za parametric na non-parametric zilitekelezwa sambamba.<br/><br/>
       Kaya za mijini zinapata alama za juu zaidi kuliko vijijini (Welch t=9.78, d=0.12). Mfano wa ML unafikia <strong>AUC=0.782</strong> na <strong>Brier=0.186</strong> — chini ya kizingiti cha 0.22 cha uaktuwali.</span>
     </div>
   </div>
 
   <div class="method-card">
-    <div class="method-title">🗄️ <span class="en">Data Source & Citation</span><span class="sw">Chanzo cha Data na Nukuu</span></div>
+    <div class="method-title"><span class="en">Data Source & Citation</span><span class="sw">Chanzo cha Data na Nukuu</span></div>
     <div class="method-body">
       <span class="en"><b>Kenya Housing Survey 2023/24</b> · Kenya National Bureau of Statistics (KNBS) · Stratified multi-stage cluster sampling · 47 counties · 21,347 households · 392 raw variables · Survey weight ratio 327.6× · Fieldwork: July 2023 – March 2024.<br/><br/>
       <b>Academic Citation:</b> [Author]. (2026). Modelling Housing-Based Financial Vulnerability and Insurance Risk Among Kenyan Households. MSc Dissertation, Strathmore University, Nairobi. Data: KNBS, KHS 2023/24.</span>
@@ -1307,8 +1302,8 @@ function toggleTheme(){
   const cur = document.documentElement.getAttribute('data-theme');
   const next = cur==='dark'?'light':'dark';
   document.documentElement.setAttribute('data-theme',next);
-  document.getElementById('theme-btn').textContent = next==='dark'?'🌙':'☀️';
-  toast('🎨 '+(next==='dark'?'Dark mode on':'Light mode on'));
+  document.getElementById('theme-btn').textContent = next==='dark'?'◑':'◐';
+  toast((next==='dark'?'Dark mode on':'Light mode on'));
 }
 
 /* ── LANG ───────────────────────────────────────────────────────── */
@@ -1431,7 +1426,7 @@ function renderGrid(){
       <div class="rank-bar-track"><div class="rank-bar-fill" style="width:${Math.round((1-c.rank/47)*100)}%;background:${level==='high'?'var(--risk-high)':level==='mod'?'var(--risk-mod)':'var(--risk-low)'}"></div></div>
       <span class="${riskBadge(c.hfvs)}">${riskLabel(c.hfvs)}</span>
       <div class="mini-bars">${miniBarHtml(c)}</div>
-      ${inCompare?'<div style="position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#000;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">✓</div>':''}
+      ${inCompare?'<div style="position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#000;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center"></div>':''}
     </div>`;
   }).join('');
 }
@@ -1538,10 +1533,10 @@ function selectCounty(name, skipCompare=false){
           <div class="ai-indicator"><div class="ai-dot"></div></div>
           <div>
             <div class="ai-title-text"><span class="en">AI Policy Advisor — ${c.name}</span><span class="sw">Mshauri wa Sera — ${c.name}</span></div>
-            <div class="ai-sub-text"><span class="en">Ask about interventions, budget priorities, or what scores mean</span><span class="sw">Uliza kuhusu hatua za makazi au maana ya alama</span></div>
+            <div class="ai-sub-text"><span class="en">Ask about interventions, what scores mean, or budget priorities</span><span class="sw">Uliza kuhusu hatua za makazi au maana ya alama</span></div>
           </div>
         </div>
-        <button class="icon-btn" onclick="shareCounty('${esc(name)}')" title="Share county profile" style="width:28px;height:28px;font-size:13px">🔗</button>
+        <button class="icon-btn" onclick="shareCounty('${esc(name)}')" title="Share county profile" style="width:28px;height:28px;font-size:13px">link</button>
       </div>
       <div class="ai-messages" id="ai-msgs-${key}">
         <div class="ai-msg thinking"><span class="en">Ask me anything about housing vulnerability in ${c.name} County — policy options, what the scores mean, or who needs to act.</span><span class="sw">Niulize chochote kuhusu udhaifu wa makazi katika Kaunti ya ${c.name}.</span></div>
@@ -1609,7 +1604,7 @@ function addToCompare(name){
   selectedCounty=null;
   updateCompareBar();
   renderGrid();
-  toast(`✓ Added ${name} to compare`);
+  toast(`Added ${name} to compare`);
 }
 function clearCompare(){ compareList=[]; updateCompareBar(); renderGrid(); }
 function showCompareHint(){ toast('Click any county card to add it to compare mode'); }
@@ -1618,7 +1613,7 @@ function updateCompareBar(){
   if(compareList.length===0){ bar.style.display='none'; return; }
   bar.style.display='flex';
   document.getElementById('compareTags').innerHTML=compareList.map(n=>`
-    <div class="compare-tag">${n}<span class="compare-x" onclick="removeCompare('${esc(n)}')">✕</span></div>
+    <div class="compare-tag">${n}<span class="compare-x" onclick="removeCompare('${esc(n)}')"></span></div>
   `).join('');
 }
 function removeCompare(name){ compareList=compareList.filter(n=>n!==name); updateCompareBar(); renderGrid(); }
@@ -1632,7 +1627,7 @@ function openCompareModal(){
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title"><span class="en">Side-by-Side Comparison</span><span class="sw">Ulinganisho wa Pamoja</span></div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()"></button>
     </div>
     <div class="modal-body">
       <div class="compare-view">
@@ -1712,7 +1707,7 @@ Platform: HFVS Kenya · Strathmore University MSc Dissertation 2026`;
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download=`HFVS_${name.replace(/\s/g,'_')}.txt`; a.click();
   URL.revokeObjectURL(url);
-  toast(`📄 Profile exported for ${name}`);
+  toast(`Profile exported for ${name}`);
 }
 
 function showExportModal(){
@@ -1722,13 +1717,13 @@ function showExportModal(){
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download='HFVS_Kenya_47_Counties.csv'; a.click();
   URL.revokeObjectURL(url);
-  toast('📊 Full dataset exported as CSV');
+  toast('Full dataset exported as CSV');
 }
 
 function shareCounty(name){
   const url=window.location.href+'#'+name.replace(/\s/g,'-');
-  if(navigator.clipboard) navigator.clipboard.writeText(url).then(()=>toast('🔗 Link copied!'));
-  else toast('🔗 Share: '+url);
+  if(navigator.clipboard) navigator.clipboard.writeText(url).then(()=>toast('Link copied!'));
+  else toast('Share: '+url);
 }
 
 /* ── FILTERS ────────────────────────────────────────────────────── */
@@ -1749,28 +1744,28 @@ function setDimSort(d,btn){
 /* ── AI ─────────────────────────────────────────────────────────── */
 function buildSysPrompt(c){
   const w=worstDim(c);
-  return `You are a housing policy advisor for Kenya, working from the Housing Financial Vulnerability Score (HFVS), built from the Kenya Housing Survey 2023/24 (KNBS, n=21,347 households).
+  return `You are a Kenya housing policy advisor grounded in the Housing Financial Vulnerability Score (HFVS), built from the Kenya Housing Survey 2023/24 (KNBS, n=21,347 households).
 
-There are two HFVS models in this work and you must never blur them:
+There are two HFVS models in this work — keep them distinct:
 
-1. Construction model (full survey): HFVS is built from five dimensions (financial stress, tenure insecurity, physical hazard, dwelling quality, utility deprivation) using the complete household questionnaire. National composite mean: 0.48. Dimension weights (variance-balanced): D1 15%, D2 19%, D3 22%, D4 21%, D5 24%.
+1. Construction model (full survey): five dimensions (financial stress, tenure insecurity, physical hazard, dwelling quality, utility deprivation). National mean: 0.48. Effective weights: D1 15%, D2 19%, D3 22%, D4 21%, D5 24%.
 
-2. Field-deployable proxy model: estimates HFVS from a short field survey using only variables independent of the HFVS formula. Spatial cross-validation AUC: 0.65–0.78, depending on model family. This is the honest, real-world accuracy for field deployment — cite this number, never the construction model's internal-consistency AUC (0.95–0.98), when asked about prediction accuracy.
+2. Field proxy model: estimates HFVS from a short intake form. Spatial CV AUC: 0.65–0.78 — cite this as the honest deployment accuracy, never the internal-consistency AUC (0.95–0.98).
 
 COUNTY CONTEXT:
 County: ${c.name} (Rank ${c.rank}/47, Region: ${c.region})
 HFVS: ${c.hfvs.toFixed(3)} | D1: ${Math.round(c.d1*100)}% | D2: ${Math.round(c.d2*100)}% | D3: ${Math.round(c.d3*100)}% | D4: ${Math.round(c.d4*100)}% | D5: ${Math.round(c.d5*100)}%
-Triple-exposed households: ${c.triple.toFixed(2)}% | Mortgage penetration: ${c.mortgage.toFixed(2)}%
+Triple-exposed: ${c.triple.toFixed(2)}% | Mortgage penetration: ${c.mortgage.toFixed(2)}%
 Worst dimension: ${DN_EN[w]}
 
-Note on D3: the county-level table intentionally underweights physical hazard (~6%) because hazard-proximity coding is sparse in the source survey — this is documented as a data limitation, not an error. The national headline weights above use a corrected, variance-balanced scheme where D3 sits near 22%. Both are legitimate, intentional choices for different purposes.
+D3 note: county table underweights physical hazard (~6%) due to sparse proximity coding — documented limitation, not an error. National headline uses corrected scheme (~22%).
 
-NATIONAL: 96.8% no formal loan | 54.5% no land ownership | 96.6% solid-fuel cooking | 43.7% no grid electricity | Brier=0.186 (below 0.22 actuarial threshold) | KMRC Spearman rho=−0.294 (p=0.045) | AHP: 12/15 most vulnerable counties have no active project | IRA: 7 counties generate all national property insurance
+NATIONAL: 96.8% no formal loan | 54.5% no land ownership | 96.6% solid-fuel cooking | 43.7% no grid electricity | Brier=0.186 | KMRC ρ=−0.294 (p=0.045) | AHP: 12/15 most vulnerable counties have no active project.
 
-Respond in plain, accessible language, free of jargon. If the user writes in Swahili, respond in Swahili. Keep responses under 250 words and tie any recommendation to the specific dimension scores given above. Never state or imply that HFVS predicts individual outcomes — it is a population-level risk stratification tool.`;
+Respond in plain, accessible language. Match the user's language (Swahili or English). Keep responses under 250 words. Tie every recommendation to the specific dimension scores above. Never state HFVS predicts individual outcomes — it is a population-level risk stratification tool.`;
 }
 
-async function callClaude(system,messages){
+async function callAI(system,messages){
   const r=await fetch('/api/chat',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -1811,7 +1806,7 @@ async function aiSend(name){
   const c=COUNTIES.find(x=>x.name===name);
 
   try{
-    const reply=await callClaude(buildSysPrompt(c),aiHistory[key]);
+    const reply=await callAI(buildSysPrompt(c),aiHistory[key]);
     aiHistory[key].push({role:'assistant',content:reply});
     think.remove();
     const el=document.createElement('div'); el.className='ai-msg assistant'; el.textContent=reply;
@@ -1827,20 +1822,19 @@ async function aiSend(name){
 
 /* ── STAKEHOLDERS ───────────────────────────────────────────────── */
 const STAKEHOLDERS=[
-  {emoji:'🏛️',role:'Regulator',nameEn:'Insurance Regulatory Authority (IRA)',nameSw:'Mamlaka ya Udhibiti wa Bima (IRA)',number:'0.186',numEn:'HFVS Brier Score (below 0.22 actuarial threshold)',numSw:'Alama ya Brier ya HFVS',descEn:'Only 7 counties generate 100% of national property insurance premium — 40 counties contribute zero. The HFVS Brier score of 0.186 enables county-differentiated premium loading without further transformation.',descSw:'Kaunti 7 tu zinazalisha asilimia 100 ya malipo ya bima ya mali ya taifa. Alama ya Brier ya 0.186 inasaidia kubuni malipo tofauti kwa kaunti.',promptEn:'How should the Insurance Regulatory Authority Kenya use the HFVS Brier score of 0.186 to design county-differentiated property insurance premiums for vulnerable households?',promptSw:'Mamlaka ya Udhibiti wa Bima inapaswa kutumiaje alama ya HFVS Brier ya 0.186 kubuni malipo tofauti ya bima ya mali kwa kaunti?',color:'var(--d5)'},
-  {emoji:'🏠',role:'Housing Ministry',nameEn:'Affordable Housing Programme (AHP)',nameSw:'Programu ya Makazi ya Bei Nafuu (AHP)',number:'12/15',numEn:'Most vulnerable counties with no active AHP project',numSw:'Kaunti zenye udhaifu zaidi hazina mradi wa AHP',descEn:'AHP-active counties (n=15) have a mean HFVS of 0.347 vs 0.359 for non-AHP counties — statistically indistinguishable (Mann-Whitney p=0.367). The HFVS county ranking provides the missing evidence layer for programme expansion.',descSw:'Kaunti za AHP zina wastani wa HFVS wa 0.347 dhidi ya 0.359 kwa kaunti zisizo na AHP. Orodha ya HFVS inatoa data ya uteuzi wa tovuti inayokosekana.',promptEn:'Which 10 counties should the Kenya Affordable Housing Programme prioritise for its next sites based on the HFVS data, and what interventions match each county\'s worst dimension?',promptSw:'Ni kaunti zipi 10 ambazo AHP inapaswa kutanguliza kwa maeneo yake ya ijayo kulingana na data ya HFVS?',color:'var(--d1)'},
-  {emoji:'💰',role:'Mortgage Finance',nameEn:'Kenya Mortgage Refinance Company (KMRC)',nameSw:'Kampuni ya Ufadhili wa Mikopo (KMRC)',number:'ρ=−0.294',numEn:'Spearman correlation HFVS vs mortgage penetration (p=0.045)',numSw:'Uhusiano wa Spearman kati ya HFVS na mikopo',descEn:'97.4% of households have neither formal mortgage nor informal loan access. The most vulnerable counties are the least financed. Five counties — Busia, Vihiga, Garissa, Mandera, Marsabit — record near-zero mortgage penetration.',descSw:'Asilimia 97.4 ya kaya hazina mikopo ya nyumba rasmi. Kaunti tano — Busia, Vihiga, Garissa, Mandera, Marsabit — zinaonyesha ufikiaji wa karibu sifuri wa mikopo.',promptEn:'How should KMRC use the HFVS finance-exclusion quadrant (high vulnerability + near-zero mortgage penetration) to direct concessional lending in Kenya?',promptSw:'KMRC inapaswa kutumiaje kipande cha kutengwa kwa fedha cha HFVS kuelekeza mikopo ya ruzuku Kenya?',color:'var(--d4)'},
-  {emoji:'🏛️',role:'County Government',nameEn:'County Governments & MCAs',nameSw:'Serikali za Kaunti na MCAs',number:'D1–D5',numEn:'Each dimension maps to a specific budget line',numSw:'Kila kipimo kinamaanisha mstari maalum wa bajeti',descEn:'D5→electrification and clean cookstoves. D2→land registration and legal aid. D3→drainage and flood mapping. D4→building upgrade subsidies. D1→microfinance and rent subsidy schemes.',descSw:'D5→umeme na jiko safi. D2→usajili wa ardhi na msaada wa kisheria. D3→mifereji ya maji. D4→ruzuku za ujenzi. D1→fedha ndogo ndogo.',promptEn:'A county official wants to present the HFVS dimension breakdown to their county assembly. What should they say, and which specific development fund allocations should they propose?',promptSw:'Afisa wa kaunti anataka kuwasilisha mgawanyiko wa HFVS kwa bunge la kaunti. Anapaswa kusema nini?',color:'var(--d2)'},
-  {emoji:'🤝',role:'Development Partners',nameEn:'NGOs, UN-Habitat & Development Partners',nameSw:'Mashirika ya Kiserikali na UN-Habitat',number:'96.6%',numEn:'Of households cooking with solid fuel — primary D5 driver',numSw:'Ya kaya zinazopika kwa kuni/mkaa',descEn:'D5 sub-scores identify households with high utility deprivation even when their composite HFVS is moderate. Rural electrification, clean cooking, and WASH investment should target D5 specifically — not the composite.',descSw:'Alama ndogo za D5 zinatambua kaya zenye ukosefu mkubwa wa huduma hata wakati alama yao ya jumla ni ya wastani.',promptEn:'Which 10 counties should NGOs and UN-Habitat target for clean cooking and WASH interventions based on D5 utility deprivation scores?',promptSw:'Ni kaunti zipi 10 ambazo mashirika yapaswa kulenga kwa hatua za upikaji safi na WASH kulingana na alama ya D5?',color:'var(--d3)'},
-  {emoji:'🏡',role:'For Everyone',nameEn:'Mwananchi — Every Kenyan',nameSw:'Mwananchi — Kila Mkenya',number:'47',numEn:'Counties you can look up right now',numSw:'Kaunti unazoweza kutafuta sasa hivi',descEn:'Go to "Explore Counties" and type your county name. See your score across five dimensions. The "Worst" badge shows your biggest housing problem. Use this data when talking to your MCA, MP, or county official.',descSw:'Nenda kwenye "Tafuta Kaunti" na uandike jina la kaunti yako. Beji ya "Mbaya Zaidi" inaonyesha tatizo lako kubwa zaidi la makazi.',promptEn:'Explain in plain language what a Kenyan mwananchi can do with the HFVS data for their county — when talking to their local representative, applying for housing assistance, or advocating for services.',promptSw:'Eleza kwa lugha ya kawaida mwananchi wa Kenya anachoweza kufanya na data ya HFVS ya kaunti yake.',color:'var(--accent)'},
+  {role:'Regulator',nameEn:'Insurance Regulatory Authority (IRA)',nameSw:'Mamlaka ya Udhibiti wa Bima (IRA)',number:'0.186',numEn:'HFVS Brier Score (below 0.22 actuarial threshold)',numSw:'Alama ya Brier ya HFVS',descEn:'Only 7 counties generate 100% of national property insurance premium — 40 counties contribute zero. The HFVS Brier score of 0.186 enables county-differentiated premium loading without further transformation.',descSw:'Kaunti 7 tu zinazalisha asilimia 100 ya malipo ya bima ya mali ya taifa. Alama ya Brier ya 0.186 inasaidia kubuni malipo tofauti kwa kaunti.',promptEn:'How should the Insurance Regulatory Authority Kenya use the HFVS Brier score of 0.186 to design county-differentiated property insurance premiums for vulnerable households?',promptSw:'Mamlaka ya Udhibiti wa Bima inapaswa kutumiaje alama ya HFVS Brier ya 0.186 kubuni malipo tofauti ya bima ya mali kwa kaunti?',color:'var(--d5)'},
+  {role:'Housing Ministry',nameEn:'Affordable Housing Programme (AHP)',nameSw:'Programu ya Makazi ya Bei Nafuu (AHP)',number:'12/15',numEn:'Most vulnerable counties with no active AHP project',numSw:'Kaunti zenye udhaifu zaidi hazina mradi wa AHP',descEn:'AHP-active counties (n=15) have a mean HFVS of 0.347 vs 0.359 for non-AHP counties — statistically indistinguishable (Mann-Whitney p=0.367). The HFVS county ranking provides the missing evidence layer for programme expansion.',descSw:'Kaunti za AHP zina wastani wa HFVS wa 0.347 dhidi ya 0.359 kwa kaunti zisizo na AHP. Orodha ya HFVS inatoa data ya uteuzi wa tovuti inayokosekana.',promptEn:'Which 10 counties should the Kenya Affordable Housing Programme prioritise for its next sites based on the HFVS data, and what interventions match each county\'s worst dimension?',promptSw:'Ni kaunti zipi 10 ambazo AHP inapaswa kutanguliza kwa maeneo yake ya ijayo kulingana na data ya HFVS?',color:'var(--d1)'},
+  {role:'Mortgage Finance',nameEn:'Kenya Mortgage Refinance Company (KMRC)',nameSw:'Kampuni ya Ufadhili wa Mikopo (KMRC)',number:'ρ=−0.294',numEn:'Spearman correlation HFVS vs mortgage penetration (p=0.045)',numSw:'Uhusiano wa Spearman kati ya HFVS na mikopo',descEn:'97.4% of households have neither formal mortgage nor informal loan access. The most vulnerable counties are the least financed. Five counties — Busia, Vihiga, Garissa, Mandera, Marsabit — record near-zero mortgage penetration.',descSw:'Asilimia 97.4 ya kaya hazina mikopo ya nyumba rasmi. Kaunti tano — Busia, Vihiga, Garissa, Mandera, Marsabit — zinaonyesha ufikiaji wa karibu sifuri wa mikopo.',promptEn:'How should KMRC use the HFVS finance-exclusion quadrant (high vulnerability + near-zero mortgage penetration) to direct concessional lending in Kenya?',promptSw:'KMRC inapaswa kutumiaje kipande cha kutengwa kwa fedha cha HFVS kuelekeza mikopo ya ruzuku Kenya?',color:'var(--d4)'},
+  {role:'County Government',nameEn:'County Governments & MCAs',nameSw:'Serikali za Kaunti na MCAs',number:'D1–D5',numEn:'Each dimension maps to a specific budget line',numSw:'Kila kipimo kinamaanisha mstari maalum wa bajeti',descEn:'D5→electrification and clean cookstoves. D2→land registration and legal aid. D3→drainage and flood mapping. D4→building upgrade subsidies. D1→microfinance and rent subsidy schemes.',descSw:'D5→umeme na jiko safi. D2→usajili wa ardhi na msaada wa kisheria. D3→mifereji ya maji. D4→ruzuku za ujenzi. D1→fedha ndogo ndogo.',promptEn:'A county official wants to present the HFVS dimension breakdown to their county assembly. What should they say, and which specific development fund allocations should they propose?',promptSw:'Afisa wa kaunti anataka kuwasilisha mgawanyiko wa HFVS kwa bunge la kaunti. Anapaswa kusema nini?',color:'var(--d2)'},
+  {role:'Development Partners',nameEn:'NGOs, UN-Habitat & Development Partners',nameSw:'Mashirika ya Kiserikali na UN-Habitat',number:'96.6%',numEn:'Of households cooking with solid fuel — primary D5 driver',numSw:'Ya kaya zinazopika kwa kuni/mkaa',descEn:'D5 sub-scores identify households with high utility deprivation even when their composite HFVS is moderate. Rural electrification, clean cooking, and WASH investment should target D5 specifically — not the composite.',descSw:'Alama ndogo za D5 zinatambua kaya zenye ukosefu mkubwa wa huduma hata wakati alama yao ya jumla ni ya wastani.',promptEn:'Which 10 counties should NGOs and UN-Habitat target for clean cooking and WASH interventions based on D5 utility deprivation scores?',promptSw:'Ni kaunti zipi 10 ambazo mashirika yapaswa kulenga kwa hatua za upikaji safi na WASH kulingana na alama ya D5?',color:'var(--d3)'},
+  {role:'For Everyone',nameEn:'Mwananchi — Every Kenyan',nameSw:'Mwananchi — Kila Mkenya',number:'47',numEn:'Counties you can look up right now',numSw:'Kaunti unazoweza kutafuta sasa hivi',descEn:'Go to "Explore Counties" and type your county name. See your score across five dimensions. The "Worst" badge shows your biggest housing problem. Use this data when talking to your MCA, MP, or county official.',descSw:'Nenda kwenye "Tafuta Kaunti" na uandike jina la kaunti yako. Beji ya "Mbaya Zaidi" inaonyesha tatizo lako kubwa zaidi la makazi.',promptEn:'Explain in plain language what a Kenyan mwananchi can do with the HFVS data for their county — when talking to their local representative, applying for housing assistance, or advocating for services.',promptSw:'Eleza kwa lugha ya kawaida mwananchi wa Kenya anachoweza kufanya na data ya HFVS ya kaunti yake.',color:'var(--accent)'},
 ];
 
 function renderStakeholders(){
   document.getElementById('stakeholderGrid').innerHTML=STAKEHOLDERS.map(s=>`
 <div class="stk-card">
   <div class="stk-icon-row">
-    <span class="stk-emoji">${s.emoji}</span>
-    <div>
+      <div>
       <div class="stk-role" style="color:${s.color}">${s.role}</div>
       <div class="stk-name en">${s.nameEn}</div>
       <div class="stk-name sw">${s.nameSw}</div>
@@ -1868,7 +1862,7 @@ function stkAsk(stkName,pEn,pSw){
         <div class="modal-title">AI Policy Advisor — ${stkName.split('(')[0].trim()}</div>
         <div style="font-size:11px;color:var(--text3)">Kenya Housing Financial Vulnerability Platform</div>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()"></button>
     </div>
     <div class="modal-body">
       <div id="stk-msgs-${key}" style="padding:14px;display:flex;flex-direction:column;gap:10px;max-height:50vh;overflow-y:auto">
@@ -1884,10 +1878,10 @@ function stkAsk(stkName,pEn,pSw){
 </div>`;
   document.getElementById('modal-container').innerHTML=modalHtml;
 
-  const sys=`You are a Kenya housing policy expert with deep knowledge of HFVS, IRA insurance regulation, KMRC mortgage finance, AHP, county budgets, NGO/UN-Habitat interventions. Be practical, specific, under 300 words. Respond in Swahili if asked in Swahili.`;
+  const sys=`You are a Kenya housing policy expert with deep knowledge of HFVS, IRA insurance regulation, KMRC mortgage finance, AHP, county budgets, and NGO/UN-Habitat interventions. Be practical, specific, under 300 words. Respond in Swahili if the user writes in Swahili.`;
   if(!stkHistory[key]) stkHistory[key]=[];
   stkHistory[key]=[{role:'user',content:prompt}];
-  callClaude(sys,stkHistory[key]).then(reply=>{
+  callAI(sys,stkHistory[key]).then(reply=>{
     stkHistory[key].push({role:'assistant',content:reply});
     const t=document.getElementById(`stk-think-${key}`); if(t) t.remove();
     const msgs=document.getElementById(`stk-msgs-${key}`);
@@ -1907,7 +1901,7 @@ async function stkFollowup(stkName,key){
   const think=document.createElement('div'); think.className='ai-msg thinking'; think.textContent='Thinking…';
   msgs.appendChild(think); msgs.scrollTop=msgs.scrollHeight;
   try{
-    const reply=await callClaude(`You are a Kenya housing policy expert. ${stkName} context. Practical, under 300 words. Swahili if asked.`,stkHistory[key]);
+    const reply=await callAI(`You are a Kenya housing policy expert. ${stkName} context. Practical, under 300 words. Swahili if asked.`,stkHistory[key]);
     stkHistory[key].push({role:'assistant',content:reply});
     think.remove();
     const el=document.createElement('div'); el.className='ai-msg assistant'; el.textContent=reply;
@@ -2020,7 +2014,7 @@ window.addEventListener('load',()=>{
   if(hint){ hint.textContent=isMac?'⌘K':'Ctrl+K'; hint.style.display='block'; }
 
   // Toast welcome
-  setTimeout(()=>toast('🇰🇪 Welcome to HFVS Kenya — click any county to explore'),800);
+  setTimeout(()=>toast('HFVS Kenya — click any county to explore'),800);
 });
 </script>
 </body>
