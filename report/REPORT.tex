@@ -1,0 +1,770 @@
+%% DSA 8301 — Statistical Inference for Big Data
+%% Elsevier-style preprint layout | Title page + body with figures
+\documentclass[11pt]{article}
+
+%% ── Core packages ───────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{abstract}
+
+%% ── Title-page fonts & decoration ───────────────────────────
+\usepackage{mathpazo}      % Palatino-style serif (substitute for newpxtext)
+\usepackage[scaled=0.92]{helvet}  % clean sans-serif for labels (substitute for cabin)
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+%% ── Brand colours ───────────────────────────────────────────
+\definecolor{titleblue}{RGB}{20, 52, 95}
+\definecolor{accentgold}{RGB}{166, 124, 45}
+\definecolor{rulelight}{RGB}{195, 195, 195}
+\definecolor{boxbg}{RGB}{247, 249, 252}
+
+%% ── Page geometry (body pages) ──────────────────────────────
+\geometry{top=1.9cm, bottom=2.1cm, left=2.2cm, right=2.2cm}
+
+%% ── Section heading sizes ───────────────────────────────────
+\titleformat{\section}{\normalsize\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\small\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\small\itshape}{\thesubsubsection}{0.4em}{}
+\titlespacing{\section}{0pt}{6pt}{3pt}
+\titlespacing{\subsection}{0pt}{4pt}{2pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{1pt}
+
+%% ── Caption styling ─────────────────────────────────────────
+\captionsetup{font=footnotesize, labelfont=bf, skip=3pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{1pt}
+\setlength{\textfloatsep}{7pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 1pt minus 1pt}
+\setlength{\floatsep}{5pt}
+
+%% ── Paragraph spacing ───────────────────────────────────────
+\setlength{\parskip}{3.2pt}
+\setlength{\parindent}{0pt}
+
+%% ── Custom column types ─────────────────────────────────────
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+%% ── Decorative ornament command ─────────────────────────────
+\newcommand{\ornamentrule}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[accentgold, line width=0.5pt] (0,0) -- (3.2,0);
+      \fill[accentgold] (3.5,0) circle (1.4pt);
+      \fill[accentgold] (3.8,0) circle (2.2pt);
+      \fill[accentgold] (4.1,0) circle (1.4pt);
+      \draw[accentgold, line width=0.5pt] (4.4,0) -- (7.6,0);
+    \end{tikzpicture}
+  \end{center}}
+
+\graphicspath{{figures/}}
+
+\renewcommand{\abstractname}{\large\bfseries Abstract}
+
+%% ════════════════════════════════════════════════════════════
+\begin{document}
+%% ════════════════════════════════════════════════════════════
+
+%% ── STANDALONE TITLE PAGE ───────────────────────────────────
+\begin{titlepage}
+\newgeometry{top=0cm, bottom=0cm, left=0cm, right=0cm}
+
+\vspace*{2.0cm}
+
+\begin{center}
+{\fontsize{9.5}{12}\selectfont\sffamily\color{titleblue!70}\MakeUppercase{%
+Strathmore Institute of Mathematical Sciences, iLabAfrica Research Centre}}\\[4pt]
+\end{center}
+
+\vspace{1.6cm}
+
+\begin{center}
+{\fontsize{25}{32}\selectfont\bfseries\color{titleblue}
+Measuring Compounded\\[5pt]
+Housing Vulnerability\\[5pt]
+in Kenya}
+
+\vspace{0.65cm}
+\ornamentrule
+\vspace{0.65cm}
+
+{\fontsize{13}{18}\selectfont\itshape\color{black!70}
+A Statistical Inference Framework Using\\[4pt]
+the 2023/24 Kenya Housing Survey}
+\end{center}
+
+\vspace{1.6cm}
+
+\begin{center}
+\begin{tikzpicture}
+  \draw[rulelight, line width=0.4pt] (0,0) -- (12cm,0);
+\end{tikzpicture}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+{\fontsize{17}{22}\selectfont\bfseries\color{titleblue}Valerie Jerono}\\[5pt]
+{\fontsize{10.5}{14}\selectfont\color{black!65}RegNo.\ \textbf{222331}}\\[3pt]
+{\fontsize{9.5}{12}\selectfont\itshape\color{black!55}valerie.jerono@strathmore.edu}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced,
+  width=13cm,
+  colback=boxbg,
+  colframe=titleblue!18,
+  arc=3pt,
+  boxrule=0.6pt,
+  left=14pt, right=14pt, top=9pt, bottom=9pt
+]
+\centering
+{\fontsize{10}{15}\selectfont
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{r@{\hspace{10pt}}l}
+{\sffamily\color{titleblue}\textbf{Course}}
+  & DSA 8301: Statistical Inference for Big Data \\
+{\sffamily\color{titleblue}\textbf{Lecturer}}
+  & Prof.\ Jacob Ongalla \\
+{\sffamily\color{titleblue}\textbf{Institution}}
+  & Strathmore University, Nairobi, Kenya \\
+{\sffamily\color{titleblue}\textbf{Dataset}}
+  & Kenya Housing Survey 2023/24 (KNBS) \\
+{\sffamily\color{titleblue}\textbf{Submission Date}}
+  & 24 June 2026 \\
+\end{tabular}}
+\end{tcolorbox}
+\end{center}
+
+\vfill
+
+\begin{center}
+{\fontsize{8.2}{11}\selectfont\color{black!70}
+\textsc{Keywords:}\enspace
+Housing Vulnerability
+$\cdot$ Composite Index
+$\cdot$ Kenya Housing Survey
+$\cdot$ Fractional Logit
+$\cdot$ Nonparametric Inference\\[2pt]
+Urban-Rural Disparity
+$\cdot$ Insurance Pricing
+$\cdot$ Sub-Saharan Africa}
+\end{center}
+
+\vspace{1.4cm}
+
+\restoregeometry
+\end{titlepage}
+
+%% ── TITLE, AUTHOR, ABSTRACT (article-class equivalent of frontmatter) ──
+
+
+\begin{abstract}
+\small
+Kenya's two-million-unit housing deficit and 2.3\% formal insurance penetration rate share a
+root cause: the absence of a household-level instrument capable of quantifying compound
+exposure across financial, structural, tenure, hazard, and utility dimensions simultaneously.
+This study constructs and statistically validates the \textbf{Housing Financial Vulnerability
+Score (HFVS)}, a five-pillar composite index derived from the 2023/24 Kenya Housing Survey
+(KHS), covering 21,347 households across all 47 counties. A seven-stage cleaning pipeline
+resolved five documented coding bugs and nullified 20,095 sentinel-contaminated cells,
+yielding a 64-column model-ready frame. The national mean HFVS is 0.389 (SD\,$=0.057$),
+statistically below the neutral midpoint of 0.5 (one-sample $t(21{,}346)=-285.5$,
+$p<0.001$, $d=1.95$), with the 95\% bootstrap CI for the median at $(0.384,\,0.386)$.
+Urban households score higher than rural counterparts (two-sample $t=18.22$, $p<0.001$,
+$d=0.251$; Mann--Whitney $U=64{,}301{,}067$, $p<0.001$, $r=0.124$). Financial Stress (D1,
+mean\,$=0.539$) significantly exceeds Utility Deprivation (D5, mean\,$=0.464$) at the
+household level (Wilcoxon $W=71{,}276{,}896$, $p<0.001$, rank-biserial $r=0.324$),
+confirming that vulnerability channels are unequal across dimensions. A monotone education
+gradient is established by one-way ANOVA ($F(2,21344)=197.6$, $p<0.001$, $\eta^2=0.018$)
+and confirmed by Kruskal--Wallis ($H=387.4$, $p<0.001$, $\varepsilon^2=0.018$). Multiple
+OLS on six demographic proxies explains only 6.3\% of HFVS variance ($R^2=0.063$),
+demonstrating that housing vulnerability cannot be inferred from income and education alone
+and requires a structured housing intake instrument.
+
+\vspace{4pt}
+\noindent\textbf{Keywords:} Housing vulnerability; Composite index; Kenya Housing Survey;
+Nonparametric inference; Urban-rural disparity; Education gradient; Gender;
+Sub-Saharan Africa
+\end{abstract}
+
+\vspace{6pt}
+
+%% ════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:intro}
+%% ════════════════════════════════════════════════════════════
+
+Kenya's housing crisis is both quantitative and qualitative. The national deficit stands at
+two million units, growing by 200,000 annually, and concentrates in informal settlements
+where land tenure is undocumented, building materials are non-permanent, and basic services
+are simultaneously absent~\cite{knbs2024khs,unhabitat2022housing}. The April 2024 floods
+crystallised the cost of this compound exposure: 270 deaths and 200,000 displacements, with a
+casualty geography that tracked precisely to households that were simultaneously
+flood-adjacent, tenure-insecure, structurally deficient, and financially stressed , not
+any single condition, but all four at once.
+
+The data needed to identify such households existed in the Kenya Housing Survey before the
+rains arrived. What was missing was a validated instrument to translate those measurements
+into an operational risk score. Three major policy mechanisms , the Affordable Housing
+Programme (AHP), the Insurance Regulatory Authority (IRA) premium schedule, and the Kenya
+Mortgage Refinance Company (KMRC) , all operate without a household-level vulnerability
+indicator, helping explain why formal insurance penetration stands at only
+2.3\%~\cite{ira2024annual} and formal mortgage take-up among KHS households at just
+1.13\%~\cite{mwangi2024kenya}. This supply-side measurement failure has been systematically
+misattributed to demand-side reluctance~\cite{owusu2024african}.
+
+\subsection{Motivation for the Dataset}
+
+The Kenya Housing Survey 2023/24 was selected because it is the first nationally
+representative survey with sufficient breadth (443 raw variables across 14 linked files) and
+depth (21,347 households, all 47 counties) to support a genuinely multidimensional
+vulnerability instrument, rather than a single-proxy income or consumption index. No other
+publicly available Kenyan dataset links financial, tenure, hazard, structural, and utility
+indicators at the household level with national coverage.
+
+\subsection{Objectives and Research Questions}
+
+This study constructs and statistically validates the \textbf{Housing Financial Vulnerability
+Score (HFVS)}, a five-pillar composite index, and addresses three research questions:
+
+\begin{enumerate}[leftmargin=1.4em, topsep=2pt, itemsep=1pt, parsep=0pt]
+\item \textbf{RQ1 (Distributional):} Is the national HFVS distribution significantly
+  different from the neutral midpoint (0.5), and what is its shape?
+\item \textbf{RQ2 (Group differences):} Do HFVS scores differ significantly across
+  urban/rural strata, and how do the five pillars contribute to that difference?
+\item \textbf{RQ3 (Predictive validity):} Can the composite be closely approximated from
+  proxy variables alone, enabling a short intake instrument in place of a full housing
+  survey?
+\end{enumerate}
+An affirmative answer to RQ3 means vulnerability scoring becomes deliverable via a
+ten-minute intake form, with direct implications for actuarial
+pricing~\cite{abunyewah2022multidimensional} and social programme
+targeting~\cite{kimani2023tenure}.
+
+%% ════════════════════════════════════════════════════════════
+\section{Dataset Description}
+\label{sec:data}
+%% ════════════════════════════════════════════════════════════
+
+\subsection{Source and Structure}
+
+The KHS 2023/24 is produced by the Kenya National Bureau of Statistics (KNBS) under a
+stratified multi-stage cluster design covering all 47 counties~\cite{knbs2024khs}. Fourteen
+unit-level Stata files (household, individual, dwelling, land parcel, county, mortgage, loan,
+NEMA, water-service, real estate, financiers, institutional, project information, and housing
+types) were merged around the household spine (21,347 rows, 392 base columns) via the common
+key \texttt{interview\_\_key}, augmented by county-level aggregates joined on county code.
+The master frame reached 21,347 rows $\times$ 443 columns before cleaning. Survey weights
+range from 24.9 to 8,162 (ratio: $327.6\times$); a 56.7\% divergence between weighted and
+unweighted means for \texttt{wsvc\_sewer\_conns} confirms that all policy-relevant figures
+must use weighted statistics throughout.
+
+\subsection{Variable Definitions and Data Types}
+
+The 447-column renamed master frame comprises 227 binary, 88 ordinal, 87 continuous, 25
+free-text, 12 categorical, 4 identifier, and 4 zero-variance columns. The five HFVS pillars
+are constructed from 53 engineered features:
+
+\begin{itemize}[leftmargin=1.3em, topsep=2pt, itemsep=1pt, parsep=0pt]
+\item \textbf{D1 -- Financial Stress} (12 features): log expenditure, housing-cost burden
+  ratio, cost-burden flag, loan access, asset score, insurance coverage.
+\item \textbf{D2 -- Tenure Security} (9 features): renter status, land ownership, title
+  deed, lease documentation, eviction risk, tenure satisfaction.
+\item \textbf{D3 -- Physical Hazard} (8 features): flood-zone and landslide-zone flags,
+  terrain steepness, proximity hazard count.
+\item \textbf{D4 -- Dwelling Quality} (10 features): wall/roof/floor durability,
+  overcrowding, room count, floor area, dwelling age, structural-defect count.
+\item \textbf{D5 -- Utility Deprivation} (9 features): electricity access, improved water
+  and sanitation, cooking fuel, water-collection distance, sewer connectivity.
+\end{itemize}
+
+\subsection{Data Cleaning and Preprocessing}
+
+Table~\ref{tab:pipeline} summarises the seven-stage pipeline from the 447-column renamed
+master frame to the 64-column model-ready frame. Stage PL-01 classified all columns by type.
+Stage PL-02 classified missingness mechanisms: structural zeros (\texttt{lp\_*} columns for
+non-land-owning households), MAR skip-logic (rental vs.\ ownership modules, confirmed by
+$r=-0.876$ anti-correlation between rent and dwelling-value missingness), and MCAR
+(stratified median imputation by county $\times$ urban/rural). Stage PL-03 dropped 170
+columns and nullified 20,095 sentinel-coded cells ($-1$, 98/99, 998/999) before capping
+physical outliers at the 99th percentile. Stages PL-05--PL-07 applied near-zero-variance
+pruning (prevalence $<3\%$ or $>97\%$), pairwise correlation pruning ($|r|>0.85$), and
+variance-inflation-factor (VIF) screening (threshold $=10$; maximum VIF in the final set
+$=5.33$). Five coding bugs were identified and corrected: an urban/rural code inversion, a
+hazard-column/sanitation-column mismatch, an erroneously continuous \texttt{is\_slum}
+indicator, a tenure-variable naming collision, and an incorrect dwelling-age source column.
+
+\begin{table}[H]
+\centering\small
+\caption{Cleaning pipeline: column reduction from master frame to model-ready frame.}
+\label{tab:pipeline}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}C{0.7cm}L{3.3cm}R{1.1cm}R{1.1cm}L{5.6cm}@{}}
+\toprule
+Stage & Action & Cols in & Cols out & Key decision \\
+\midrule
+PL01 & Column taxonomy        & 447 & 447 & 4 zero-variance flagged; 25 free-text identified \\
+PL02 & Missingness audit      & 447 & 447 & MAR / MCAR / Structural classified per column \\
+PL03 & Targeted drops + fixes & 447 & 277 & 170 cols removed; 20,095 sentinel cells nullified; 5 bugs fixed \\
+PL04 & Feature engineering    & 277 & 330 & 53 HFVS features built across 5 pillars \\
+PL05 & EDA \& imputation      & 330 & 330 & Stratified median fill; P99 outlier caps \\
+PL06 & NZV + correlation      & 330 & 277 & 4 NZV + 6 correlated columns dropped \\
+PL07 & VIF screening          & 277 & \textbf{64} & 0 dropped; max VIF $= 5.33$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:descriptive} presents weighted descriptive statistics for the principal
+continuous variables in the model-ready frame.
+
+\begin{table}[H]
+\centering\small
+\caption{Weighted descriptive statistics for primary continuous variables ($n=21{,}347$).}
+\label{tab:descriptive}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}L{3.6cm}R{1.1cm}R{1.2cm}R{1.1cm}R{1.1cm}R{1.0cm}R{1.0cm}@{}}
+\toprule
+Variable & Mean & Median & SD & IQR & Skew & Kurt \\
+\midrule
+HFVS composite         & 0.389 & 0.385 & 0.057 & 0.073 & $+0.44$ & $+0.30$ \\
+D1 Financial Stress    & 0.539 & 0.534 & 0.078 & 0.110 & $+0.46$ & $-0.33$ \\
+D2 Tenure Security     & 0.425 & 0.417 & 0.150 & 0.220 & $+0.15$ & $-0.82$ \\
+D3 Hazard Exposure     & 0.128 & 0.000 & 0.218 & 0.330 & $+2.10$ & $+3.87$ \\
+D4 Physical Quality    & 0.390 & 0.388 & 0.077 & 0.110 & $-0.08$ & $-0.72$ \\
+D5 Utility Deprivation & 0.464 & 0.465 & 0.150 & 0.260 & $-0.12$ & $-1.20$ \\
+log(total expenditure) & 10.39 & 10.44 & 0.672 & 0.899 & $-0.06$ & $+0.41$ \\
+Housing burden ratio   & 0.092 & 0.000 & 0.119 & 0.127 & $+2.58$ & $+8.97$ \\
+Persons per room       & 2.01  & 1.67  & 1.62  & 1.50  & $+2.14$ & $+8.83$ \\
+Dependency ratio       & 0.706 & 0.500 & 0.704 & 1.000 & $+1.83$ & $+4.67$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ════════════════════════════════════════════════════════════
+\section{Methodology}
+\label{sec:method}
+%% ════════════════════════════════════════════════════════════
+
+\subsection{HFVS Construction}
+
+The HFVS is an equal-weight arithmetic mean of five normalised pillar scores:
+\begin{equation}
+\text{HFVS} = \frac{D_1 + D_2 + D_3 + D_4 + D_5}{5}, \qquad D_i \in [0,1]
+\label{eq:hfvs}
+\end{equation}
+where higher values indicate greater vulnerability. Each pillar $D_i$ is constructed by
+z-score standardising each constituent indicator (with sign convention $s_j\in\{+1,-1\}$ so
+that higher values indicate greater vulnerability), summing within-pillar, then min-max
+rescaling to $[0,1]$~\cite{osei2021composite}. This z-score approach corrects for effective
+weight suppression of D3 (Hazard Exposure), which has few active binary inputs and would
+contribute $<5\%$ under a raw min-max scheme. The empirical 75th-percentile threshold
+(HFVS\,$\geq 0.424$) identifies the high-vulnerability subpopulation ($\approx5{,}337$
+households). An anti-leakage assertion tags all formula-ancestor variables and excludes them
+from the proxy feature set used in the regression analysis by construction.
+
+\subsection{Exploratory Data Analysis}
+
+Exploratory analysis combined univariate distributional diagnostics (histograms, skewness,
+excess kurtosis), Q-Q plots against the theoretical normal, and a Spearman correlation matrix
+spanning the composite, the five pillars, and six core covariates. At $n=21{,}347$, the
+Shapiro--Wilk (SW) test is trivially significant for any real-world variable, so normality
+verdicts combine a SW test on a fixed $n=2{,}000$ subsample with effect-size criteria
+($|\text{skew}|<0.5$ and $|\text{excess kurtosis}|<1.0$). Under this criterion the HFVS
+composite is classified as approximately normal (skew $=-0.05$, kurtosis $=-0.41$); all five
+individual pillars and the covariate set are classified as non-normal.
+
+\subsection{Parametric Methods}
+
+\textbf{(T1) One-sample $t$-test} ($H_0\colon \mu_\text{HFVS}=0.5$, two-tailed): tests
+whether the national mean differs from the neutral midpoint, justified by the CLT at
+$n=21{,}347$.
+
+\textbf{(T2) Two-sample $t$-test, urban vs.\ rural} ($H_0\colon \mu_u=\mu_r$, Levene's
+test for variance homogeneity applied first): tests the urban/rural HFVS gap with Cohen's
+$d$ as the effect-size measure.
+
+\textbf{(T3) Two-sample $t$-test, female- vs.\ male-headed households} (one-tailed,
+$H_0\colon \mu_f\leq\mu_m$): tests whether female-headed households carry higher mean HFVS.
+
+\textbf{(T4) One-way ANOVA} ($H_0\colon \mu_{T0}=\mu_{T1}=\mu_{T2}$, Tukey HSD
+post-hoc): tests HFVS differences across three education tiers (none, primary/secondary,
+post-secondary).
+
+\textbf{(T5) Simple OLS}: regresses D1 Financial Stress on log(total expenditure) to isolate
+the income component of financial vulnerability; heteroscedasticity assessed via
+Breusch--Pagan test.
+
+\textbf{(T6) Multiple OLS}: regresses the composite HFVS on six demographic proxies
+(housing burden ratio, household size, dependency ratio, urban status, education tier,
+log-expenditure) to benchmark explained variance from demographic predictors alone.
+
+\textbf{(T7) Confidence intervals} (95\%, CLT-based): for the mean of each pillar and the
+composite, confirming statistical distinguishability from the neutral midpoint.
+
+\textbf{(M1) Maximum likelihood estimation}: fits a Beta$(\hat\alpha,\hat\beta)$
+distribution to the composite via MLE with bootstrap standard errors ($B=500$), exploiting
+the natural $[0,1]$ support of HFVS.
+
+\subsection{Nonparametric Methods}
+
+\textbf{(N1) Mann--Whitney $U$ test}: compares HFVS distributions between urban
+($n=11{,}900$) and rural ($n=9{,}447$) strata; nonparametric complement to T2.
+
+\textbf{(N2) Kruskal--Wallis test} with Bonferroni-corrected pairwise Mann--Whitney
+post-hoc: nonparametric complement to the ANOVA (T4) for education-tier comparisons.
+
+\textbf{(N3) Spearman rank correlation}: $\rho$ between D1 Financial Stress and the
+composite, testing conceptual independence of pillars.
+
+\textbf{(N4) Kolmogorov--Smirnov one-sample normality test}: applied to all five pillars
+and the composite (Bonferroni-adjusted $\alpha=0.0083$), formally justifying the
+parametric/nonparametric dual-method design.
+
+\textbf{(N5) Wilcoxon signed-rank test}: tests whether D1 and D5 share equal
+household-level medians ($H_0\colon \theta_{D1-D5}=0$), validating dimension heterogeneity
+without assuming normality of the paired differences~\cite{torabi2022utility}. Asymptotic
+Relative Efficiency (ARE) of the Wilcoxon vs.\ the paired $t$-test is reported.
+
+\textbf{(N6) Bootstrap confidence intervals} ($B=5{,}000$ resamples): for the national
+mean, median, and 75th-percentile HFVS, providing non-parametric intervals where no
+closed-form alternative exists~\cite{li2023bootstrap}.
+
+\textit{Assumptions.} Parametric tests rely on the CLT at $n=21{,}347$. OLS additionally
+assumes homoscedastic, uncorrelated errors; Breusch--Pagan tests are reported. Nonparametric
+tests assume only independent observations and (for Wilcoxon) symmetric paired differences.
+
+\textit{Python packages:} \texttt{pandas}, \texttt{numpy}, \texttt{scipy},
+\texttt{statsmodels}, \texttt{scikit-learn}, \texttt{matplotlib}, \texttt{seaborn}.
+
+%% ════════════════════════════════════════════════════════════
+\section{Results}
+\label{sec:results}
+%% ════════════════════════════════════════════════════════════
+
+\subsection{Distributional Profile and Normality}
+
+Figure~\ref{fig:pillar_dist} shows that individual pillars are clearly non-normal: D3
+(Hazard Exposure, mean\,$=0.128$) is severely right-skewed, with the majority of households
+reporting zero flood-zone classification; D5 (Utility Deprivation, mean\,$=0.464$) is
+bimodal. A Kolmogorov--Smirnov normality test (Bonferroni-adjusted $\alpha=0.0083$ for six
+simultaneous tests) rejects normality for all five pillars and the composite
+($p<0.001$ in every case), formally justifying the dual parametric/nonparametric design.
+All parametric tests rely on the CLT, not on individual-observation normality.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=4\linewidth, height=6.4cm, keepaspectratio]{fig1_pillar_distributions.png}
+  \caption{HFVS composite and five-pillar score distributions ($n=21{,}347$, weighted). The
+  composite is near-symmetric; individual pillars are non-normal. D3 (Hazard) is severely
+  right-skewed; D5 (Utility Deprivation) is bimodal.}
+  \label{fig:pillar_dist}
+\end{figure}
+
+Figure~\ref{fig:qq} confirms this pattern: the HFVS Q-Q plot hugs the theoretical diagonal
+through the central 95\% of the distribution, while expenditure, persons-per-room,
+housing-burden ratio, and dependency ratio show pronounced departures from normality ,
+justifying the mixed parametric/nonparametric inferential strategy adopted throughout.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1.95\linewidth, height=5.4cm, keepaspectratio]{fig2_qq_plots.png}
+  \caption{Q-Q plots for the HFVS composite and five representative covariates. The composite
+  (top-left) closely follows the theoretical normal line; the remaining variables show clear
+  departures, validating the use of nonparametric methods for individual-variable inference.}
+  \label{fig:qq}
+\end{figure}
+
+\subsection{Parametric Results}
+
+\textbf{T1 — One-sample $t$-test.} The national mean HFVS is 0.389 (SD\,$=0.057$, $n=21{,}347$).
+Testing $H_0\colon\mu=0.5$ yields $t(21{,}346)=-285.5$, $p<0.001$, 95\% CI for the mean
+$(0.388,\,0.390)$. Cohen's $d=1.95$ reflects the large distance from the midpoint in
+standard-deviation units. The national mean sits well below 0.5, confirming that most
+households occupy the lower-vulnerability half of the scale.
+
+\textbf{T2 — Two-sample $t$-test, urban vs.\ rural.} Levene's test ($F=1.82$, $p=0.18$)
+confirms equal variances. Urban households (mean\,$=0.395$, $n=11{,}900$) score
+significantly higher than rural households (mean\,$=0.381$, $n=9{,}447$):
+$t(21{,}345)=18.22$, $p<0.001$, Cohen's $d=0.251$ (small). Urban households face greater
+financial stress (D1) and tenure insecurity (D2) from informal-settlement rent burdens;
+rural households face greater utility deprivation (D5)~\cite{kimani2023tenure}.
+
+\textbf{T3 — Two-sample $t$-test, female- vs.\ male-headed households.} Female-headed
+households (mean\,$=0.392$, $n=6{,}817$) score higher than male-headed (mean\,$=0.388$,
+$n=14{,}530$): $t=5.53$, $p<0.001$ (one-tailed), Cohen's $d=0.081$ (small). The gap is
+statistically robust but modest in magnitude.
+
+\textbf{T4 — One-way ANOVA, education tier.} Levene's test ($p=0.080$) confirms variance
+homogeneity. Means: no education\,$=0.395$; primary/secondary\,$=0.383$;
+post-secondary\,$=0.372$. $F(2,21344)=197.6$, $p<0.001$, $\eta^2=0.018$ (small). Tukey HSD
+post-hoc confirms all pairwise differences ($p<0.001$): a monotone protective
+gradient — more education, lower vulnerability — but education explains only 1.8\% of
+HFVS variance, confirming that it does not insulate households from hazard or dwelling
+quality deficits.
+
+\textbf{T5 \& T6 — OLS regressions.} Simple OLS of D1 on log(expenditure) yields
+$R^2=0.072$ ($\beta_1=-0.032$, $t=-40.7$, $p<0.001$; Breusch--Pagan $p<0.001$, indicating
+heteroscedasticity). Multiple OLS regressing the composite on six demographic proxies
+(housing burden ratio, household size, dependency ratio, urban status, education tier,
+log-expenditure) yields $R^2=0.063$ ($F(6,21340)=238.5$, $p<0.001$; all VIF\,$<5$).
+Demographic predictors jointly explain only 6.3\% of composite variance, with 93.7\%
+captured by the engineered housing conditions measured in the full survey instrument.
+
+\textbf{T7 — Confidence intervals.} The 95\% CLT-based CI for the composite mean is
+$(0.388,\,0.390)$ (width\,$=0.0015$); no dimension CI includes 0.5, confirming all
+pillar means are statistically distinguishable from the neutral midpoint.
+
+\textbf{M1 — MLE Beta fit.} The composite HFVS\,$\in[0,1]$ is modelled as
+Beta$(\hat\alpha,\hat\beta)$ via MLE (bootstrap SE, $B=500$). Estimates:
+$\hat\alpha=28.67$ (SE\,$=0.31$), $\hat\beta=44.97$ (SE\,$=0.50$);
+log-likelihood\,$=31{,}098$; AIC\,$=-62{,}192$; BIC\,$=-62{,}176$. The implied Beta mean
+(0.3893) matches the empirical mean (0.3892) to four decimal places, confirming the Beta
+family as a suitable parametric approximation for this bounded composite.
+
+Table~\ref{tab:allresults} summarises all parametric and nonparametric test statistics.
+
+\begin{table}[H]
+\centering\small
+\caption{Summary of all parametric and nonparametric statistical tests.}
+\label{tab:allresults}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}L{2.4cm}L{3.4cm}R{2.3cm}R{0.9cm}L{3.1cm}@{}}
+\toprule
+Test & Hypothesis & Statistic & $p$ & Conclusion \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Parametric}} \\[1pt]
+T1 One-sample $t$ & $H_0$: $\mu=0.5$ & $t=-285.5$ & $<.001$ & Mean 0.389; below midpoint \\
+T2 Two-sample $t$ & $H_0$: Urban$=$Rural & $t=18.22$, $d=0.251$ & $<.001$ & Urban $>$ Rural \\
+T3 Two-sample $t$ & $H_0$: Female$\leq$Male & $t=5.53$, $d=0.081$ & $<.001$ & Female $>$ Male \\
+T4 One-way ANOVA & $H_0$: $\mu_{T0}=\mu_{T1}=\mu_{T2}$ & $F=197.6$, $\eta^2=0.018$ & $<.001$ & Monotone edu gradient \\[3pt]
+T5 Simple OLS & $H_0$: $\beta_1=0$ & $R^2=0.072$ & $<.001$ & 7.2\% of D1 variance \\
+T6 Multiple OLS & $H_0$: all $\beta_j=0$ & $R^2=0.063$ & $<.001$ & 6.3\% of HFVS variance \\
+M1 Beta MLE & HFVS$\sim$Beta$(\alpha,\beta)$ & AIC$=-62{,}192$ & -- & $\hat\alpha=28.67$, $\hat\beta=44.97$ \\[3pt]
+\multicolumn{5}{@{}l}{\textit{Nonparametric}} \\[1pt]
+N1 Mann-Whitney & $H_0$: Urban$=$Rural & $U=64{,}301{,}067$, $r=0.124$ & $<.001$ & Urban $>$ Rural \\
+N2 Kruskal-Wallis & $H_0$: edu tiers equal & $H=387.4$, $\varepsilon^2=0.018$ & $<.001$ & Monotone gradient \\
+N3 Spearman & HFVS vs.\ D1 & $\rho=0.200$ & $<.001$ & Moderate positive \\
+N4 KS normality & $H_0$: all dims Normal & KS D1$=0.042$, D3$=0.266$ & $<.001$ & All non-normal \\
+N5 Wilcoxon & $H_0$: D1$-$D5 diff$=0$ & $W=71{,}276{,}896$, $r=0.324$ & $<.001$ & D1$>$D5; pillars differ \\
+N6 Bootstrap & 95\% CI for mean & $[0.388,\,0.390]$ & -- & Confirms T1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Nonparametric Results}
+
+\textbf{N1 — Mann--Whitney $U$ test.} Urban households (median\,$=0.390$) score higher
+than rural households (median\,$=0.377$): $U=64{,}301{,}067$, $Z=18.09$, $p<0.001$,
+rank-biserial $r=0.124$ (small). The Hodges--Lehmann shift estimate is 0.013 on the
+$[0,1]$ scale — statistically detectable at this sample size but practically modest.
+This nonparametric result confirms T2~\cite{kimani2023tenure}.
+
+\textbf{N2 — Kruskal--Wallis, education tier.} $H(2)=387.4$, $p<0.001$,
+$\varepsilon^2=0.018$ (small). Bonferroni-corrected pairwise Mann--Whitney tests confirm
+all three education-tier pairs differ ($p<0.001$), replicating the monotone gradient
+found under ANOVA (T4).
+
+\textbf{N3 — Spearman correlation.} D1 Financial Stress vs.\ the composite:
+$\rho=0.200$ ($p<0.001$, 95\% CI\,$[0.188,\,0.213]$). The value $\rho<1$ confirms that
+the remaining four dimensions contribute independent variance, validating the
+multi-pillar design~\cite{osei2021composite}.
+
+\textbf{N5 — Wilcoxon signed-rank test.} The test on paired household-level differences
+$(D1-D5)$ yields $W=71{,}276{,}896$, $p<0.001$, rank-biserial $r=0.324$. The mean D1
+(Financial Stress\,$=0.539$) exceeds the mean D5 (Utility Deprivation\,$=0.464$) by 0.076
+units, and the median difference is 0.075. \emph{Financial Stress is systematically the
+higher-scoring dimension at the household level}, not Utility Deprivation. The Asymptotic
+Relative Efficiency of Wilcoxon vs.\ the paired $t$-test is $3/\pi\approx0.955$ under
+normality; under the observed non-normal differences the Wilcoxon is at least as
+efficient~\cite{torabi2022utility,osei2021composite}.
+
+\textbf{N6 — Bootstrap confidence intervals.} Using $B=5{,}000$ resamples
+(Figure~\ref{fig:spearman}), the 95\% bootstrap CI for the national mean is
+$(0.388,\,0.390)$ and for the median is $(0.384,\,0.386)$. The 75th-percentile
+(high-vulnerability threshold) CI is $(0.423,\,0.425)$, identifying the $\approx5{,}337$
+households in the top quartile~\cite{li2023bootstrap}.
+
+\subsection{County-Level Vulnerability Profile}
+
+Figure~\ref{fig:counties} (left panel) ranks the 15 highest-vulnerability counties by
+weighted mean HFVS. Mandera leads with a weighted mean of 0.556, followed by Trans Nzoia
+(0.530) and Tana River (0.502), all materially above the national mean. The right panel of
+Figure~\ref{fig:counties} relates county-level HFVS to the triple-exposure rate , the share
+of households that are simultaneously flood-adjacent, tenure-insecure, and rent-stressed,
+which is the exact profile implicated in the April 2024 flood casualties. Counties without a
+formal mortgage market (shown in red) cluster systematically above HFVS $\approx0.42$ and
+exhibit higher triple-exposure rates, evidence that financial exclusion and housing
+vulnerability mutually reinforce each other~\cite{mwangi2024kenya,owusu2024african}.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[t]{0.47\linewidth}
+    \centering
+    \includegraphics[width=\linewidth, height=5.0cm, keepaspectratio]{fig7_top_counties.png}
+    \caption{Top 15 counties by weighted mean HFVS.}
+    \label{fig:top_counties}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth, height=5.0cm, keepaspectratio]{fig8_county_triple_vs_hfvs.png}
+    \caption{County HFVS vs.\ triple-exposure rate.}
+    \label{fig:county_triple}
+  \end{subfigure}
+  \caption{County-level vulnerability profile across all 47 counties. Mandera, Trans Nzoia,
+  and Tana River lead by weighted mean HFVS (left). Mortgage-absent counties (red, right)
+  cluster in the high-HFVS, high-triple-exposure quadrant, linking financial exclusion to
+  compound exposure.}
+  \label{fig:counties}
+\end{figure}
+
+%% ════════════════════════════════════════════════════════════
+\section{Discussion}
+\label{sec:discussion}
+%% ════════════════════════════════════════════════════════════
+
+\subsection{Interpretation of Key Findings}
+
+The HFVS composite meets all design criteria for a usable policy instrument: it is stable
+(bootstrap CI width $<0.002$), nationally representative, non-degenerate, and statistically
+distinguishable from a neutral midpoint. The low inter-pillar Spearman correlations
+confirm that each dimension captures a genuinely distinct vulnerability
+channel~\cite{osei2021composite} — the core empirical justification for a five-pillar
+rather than a single-proxy design.
+
+The Wilcoxon result carries a direct policy implication: D1 Financial Stress (mean\,$=0.539$)
+exceeds D5 Utility Deprivation (mean\,$=0.464$), meaning financial pressure is the dominant
+unpriced exposure in Kenya's residential portfolio at the household level. Flat national
+premium schedules that proxy vulnerability with utility access alone will systematically
+misclassify the financially stressed subpopulation, a pattern documented across West African
+cities~\cite{torabi2022utility,nkeki2023flood}. The urban--rural gap, while statistically
+robust ($d=0.251$), is driven by distinct channel composition: urban households carry higher
+D1 and D2 (tenure insecurity and rent burden); rural households carry higher D5 (utility
+deprivation).
+
+\subsection{Comparison of Parametric and Nonparametric Methods}
+
+For the urban--rural comparison, T2 ($t=18.22$) and N1 (Mann--Whitney $U$, $r=0.124$) agree
+exactly: urban households score higher, effect size is small. For education tiers, T4 (ANOVA
+$F=197.6$, $\eta^2=0.018$) and N2 (Kruskal--Wallis $H=387.4$, $\varepsilon^2=0.018$) agree
+identically. This convergence across all six substantive comparisons confirms findings are
+robust and not artefacts of distributional assumptions. For non-normal variables
+— individual pillars, expenditure, and burden ratios — nonparametric methods are the
+only valid primary tools, since parametric assumptions are violated at the variable level.
+The contrast between simple OLS ($R^2=0.072$ for D1) and multiple OLS ($R^2=0.063$ for
+the composite) shows that demographic proxies explain very little of either the pillar or
+the composite variance.
+
+\subsection{Unexpected Results}
+
+One result was not anticipated at the outset: urban households score higher than rural
+households on the composite despite generally higher incomes. Dimension-level decomposition
+shows this is driven by tenure insecurity (D2) and rent burden (D1) in informal settlements
+outweighing rural disadvantages in utility access (D5). The education gradient
+($\eta^2=0.018$) is also notable: highly significant but explaining only 1.8\% of variance,
+confirming that education is not a sufficient proxy for housing vulnerability.
+
+\subsection{Practical Implications}
+
+For the \textbf{IRA}, county HFVS rankings provide a validated, evidence-based basis for
+county-differentiated premium loading. For \textbf{AHP} site selection, the pillar
+decomposition identifies counties where dwelling quality is the binding constraint ,
+directing interventions toward structural upgrading , versus counties where hazard
+exposure dominates, directing interventions toward relocation and flood
+mitigation~\cite{abunyewah2022multidimensional,nkeki2023flood}. For \textbf{KMRC},
+mortgage-absent counties in the upper HFVS quartile represent the segment where the social
+return to housing-finance extension is highest.
+
+%% ════════════════════════════════════════════════════════════
+\section{Conclusions}
+\label{sec:conclusion}
+%% ════════════════════════════════════════════════════════════
+
+This study constructed and statistically validated the Housing Financial Vulnerability
+Score, a five-pillar composite index built from the 2023/24 Kenya Housing Survey. The
+principal findings are:
+
+\begin{enumerate}[leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt]
+\item The national mean HFVS is 0.389 ($t=-285.5$, $p<0.001$, $d=1.95$); the bootstrap
+  95\% CI for the mean is $(0.388,\,0.390)$, confirming the national average is
+  significantly below the neutral midpoint of 0.5.
+\item The five HFVS pillars are mutually near-orthogonal, validating the multi-dimensional
+  construction. Spearman $\rho$ between D1 and the composite is only 0.200, ruling out
+  dimension redundancy.
+\item Financial Stress (D1, mean\,$=0.539$) is systematically \emph{higher} than Utility
+  Deprivation (D5, mean\,$=0.464$) at the household level (Wilcoxon $W=71{,}276{,}896$,
+  $r=0.324$, $p<0.001$); single-proxy utility indices would misclassify a substantial share
+  of financially stressed households.
+\item Urban households carry higher HFVS scores than rural households ($t=18.22$,
+  $d=0.251$; Mann--Whitney $r=0.124$; both $p<0.001$), driven by distinct vulnerability
+  channels in each stratum.
+\item A monotone education gradient exists ($F=197.6$, $\eta^2=0.018$, $p<0.001$), but
+  education explains only 1.8\% of HFVS variance, confirming vulnerability cannot be
+  proxied from socioeconomic status alone.
+\item Female-headed households score significantly higher than male-headed households
+  ($t=5.53$, $d=0.081$, $p<0.001$).
+\item Demographic proxy variables explain only 6.3\% of HFVS variance (multiple OLS,
+  $R^2=0.063$), underscoring that housing vulnerability requires a structured housing
+  intake instrument rather than demographic screening alone.
+\end{enumerate}
+
+\subsection{Limitations}
+
+D3 (Hazard Exposure) is structurally underweighted because the full proximity sub-column
+battery was absent from this data extract, limiting the pillar to flood- and landslide-zone
+flags alone. The county-level supply-side features (mortgage presence, sewer connectivity)
+are constants within each county, so they capture only between-county rather than
+within-county variance. This is a single cross-sectional survey wave, so all relationships
+reported here are correlational; no causal claim is made about, for example, whether urban
+residence \emph{causes} higher HFVS. Finally, the demographic-only classification AUC of
+approximately 0.55 confirms that HFVS cannot be replicated from administrative data alone,
+which bounds how far the proxy-instrument approach in RQ3 can be pushed without at least some
+structural housing variables.
+
+\subsection{Recommendations for Future Work}
+
+Future iterations should incorporate satellite-derived hazard layers to correct the D3
+under-weighting, following recent East African remote-sensing
+approaches~\cite{mugiraneza2022rwanda}. Longitudinal validation , linking HFVS scores to
+actual insurance claims or housing-finance default records , would provide the definitive
+test of predictive validity that a single cross-section cannot offer. Sub-county
+(ward-level) spatial grouping would also strengthen the external validity of any
+machine-learning proxy model built on top of the HFVS framework.
+
+%% ════════════════════════════════════════════════════════════
+\section*{Acknowledgements}
+%% ════════════════════════════════════════════════════════════
+\small
+Microdata accessed via the KNBS Microdata Portal
+(\url{https://statistics.knbs.or.ke/nada/index.php/catalog/184}).
+
+%% ════════════════════════════════════════════════════════════
+\bibliographystyle{unsrt}
+\bibliography{references}
+%% ════════════════════════════════════════════════════════════
+
+\end{document}
