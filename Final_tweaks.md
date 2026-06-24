@@ -197,3 +197,58 @@ print('  households. Policy must focus on the tail — not the mean.')
 ```
 
 ---
+
+---
+
+# ROUND 2 — Output-Verified Enhancements (Post-Colab Run)
+
+> Applied after pulling the Colab-executed notebook. All statistics below are from actual cell outputs.
+
+## Critical Markdown Corrections (Wrong Numbers Fixed)
+
+| Cell | Error | Correction |
+|---|---|---|
+| Gini result (cell 54) | Stated ρ = −0.37 (negative) | **Actual: ρ = +0.295 (positive, p=0.044)** — most vulnerable counties ARE more internally unequal |
+| AHP result (cell 57) | Stated p = 0.367, U = 200 | **Actual: U = 169, p = 0.108** — still not significant |
+| D.6b bootstrap (cell 50) | Claimed "non-overlapping CIs justify county targeting" | **Actual: CIs overlap** — this is a null finding |
+| Discussion — HFVS mean | Stated 0.480 | **Actual: mean = 0.389, SD = 0.057** |
+| Discussion — Spearman ρ | Stated ρ = 0.624 | **Actual: ρ = 0.200** (D1 ↔ composite) |
+| Discussion — D3 mean | Stated "below midpoint" | **Actual: D3 mean = 0.128** (far below, not slightly below) |
+| Synthesis cell | Wrong means throughout | All corrected to real outputs |
+
+## New Visualization Cells Added (5 figures)
+
+| Figure | Cell label | Location | What it shows |
+|---|---|---|---|
+| V.1 | `fig_V1_dimension_means_CI.png` | After C.7 (CI cell) | D1–D5 + composite means with 95% CIs. D1=0.539 highest, D3=0.128 lowest. |
+| V.2 | `fig_V2_education_boxplot_effectsize.png` | After C.4 (ANOVA) | Education tier box plots with Tukey brackets + effect size comparison panel |
+| V.3 | `fig_V3_AHP_alignment.png` | After P.1 (AHP cell) | County dot plot ranked by HFVS, AHP active vs not. Top 5 most vulnerable all outside AHP. |
+| V.4 | `fig_V4_kenya_choropleth.png` | Before Gini section | Kenya county choropleth: measured vs modelled HFVS. Falls back to bar chart if geopandas unavailable. |
+| V.5 | `fig_V5_test_battery.png` | After R.1 (master table) | All 15 tests: effect size + −log₁₀(p) side by side. 13 reject H0, 2 null findings. |
+
+## Discussion Markdown — Fully Rewritten with Real Numbers
+
+| Statistic | Corrected value |
+|---|---|
+| HFVS mean | 0.389 (not 0.480) |
+| HFVS SD | 0.057 |
+| 75th percentile | 0.424 |
+| D1 Financial Stress | 0.539 (dominant) |
+| D2 Tenure Insecurity | 0.425 |
+| D3 Physical Hazard | 0.128 (lowest) |
+| D4 Dwelling Quality | 0.390 |
+| D5 Utility Deprivation | 0.464 |
+| Spearman D1↔composite | ρ = 0.200 |
+| Mann-Whitney Urban/Rural | r = 0.124 |
+| ANOVA Education | F(2,21344)=197.6, η²=0.018 |
+| Simple OLS | R²=0.072 |
+| Multiple OLS (6 predictors) | R²=0.063 |
+| Wilcoxon D1 vs D5 | r=0.324, diff=0.076 |
+| KS two-sample | D=0.059, p=1.3e-12 |
+| Gini Spearman | ρ=+0.295, p=0.044 |
+| AHP Mann-Whitney | U=169, p=0.108 |
+
+## Conclusions — Expanded to 14 Findings Table
+
+All 14 findings now include exact test statistics, effect sizes, and sample sizes.
+
