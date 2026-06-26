@@ -625,7 +625,7 @@ Python    pandas · numpy · scipy · statsmodels
 Inference scipy.stats (t, mannwhitneyu, kruskal, spearmanr, kstest, wilcoxon)
           statsmodels (OLS, fractional logit, Beta MLE, bootstrap CIs)
 
-Models    LightGBM · XGBoost · LogisticRegression · TabNet · MLP
+Models    LightGBM · XGBoostt · LogisticRegression · TabNet · MLP
 
 Deployment  Vercel · Groq (bilingual AI advisor) · HTML/CSS/JS
 ```
